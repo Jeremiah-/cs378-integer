@@ -23,210 +23,84 @@
 using namespace std;
 
 // -----------
-// TestPFD
+// TestInteger
 // -----------
-
 
 
 // ----
 // shift_left_digits
 // ----
 
-TEST(PFDFixture, initialize) {
-    istringstream r("1 2 1 2\n2 3 1 2 3");
-    vector<int> pre(4);
-    vector<vector<int>> suc(4);
+TEST(IntegerFixture, shift_left1) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> result;
 
-    pfd_initialize_adjacency_list(pre, suc, r, 2);
-
-    // ASSERT_THAT( pre[1], ElementsAre(1, 2));
-    // ASSERT_THAT( pre[2], ElementsAre(1, 2, 3));
-
-    ASSERT_EQ(pre[1], 2);
-    ASSERT_EQ(pre[2], 3);
-    ASSERT_EQ( pre[3], 0);
-    ASSERT_EQ( suc[1].size(), 2);
-    ASSERT_EQ( suc[2].size(), 2);
-    ASSERT_EQ( suc[3].size(), 1);
-    // ASSERT_THAT(suc[1], ElementsAre(1, 2));
-    // ASSERT_THAT(suc[2], ElementsAre(1, 2));
-    // ASSERT_THAT(suc[3], ElementsAre(2));
+    result = shift_left_digits(testVector.begin(), testVector.end(), 1, result);
+    ASSERT_EQ(result[0], 2);
+    ASSERT_EQ(result[1], 3);
+    ASSERT_EQ(result[2], 0);
 }
 
 
-TEST(PFDFixture, initialize1) {
-    istringstream r("1 2 3 4");
-    vector<int> pre(5);
-    vector<vector<int>> suc(5);
+TEST(IntegerFixture, shift_left2) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> result;
 
-    pfd_initialize_adjacency_list(pre, suc, r, 1);
-
-    // ASSERT_THAT( pre[1], ElementsAre(1, 2));
-    // ASSERT_THAT( pre[2], ElementsAre(1, 2, 3));
-
-    ASSERT_EQ(pre[1], 2);
-    ASSERT_EQ(pre[2], 0);
-    ASSERT_EQ(pre[3], 0);
-    ASSERT_EQ(pre[4], 0);
-    ASSERT_EQ(suc[1].size(), 0);
-    ASSERT_EQ(suc[2].size(), 0);
-    ASSERT_EQ(suc[3].size(), 1);
-    ASSERT_EQ(suc[4].size(), 1);
-    // ASSERT_THAT(suc[1], ElementsAre(1, 2));
-    // ASSERT_THAT(suc[2], ElementsAre(1, 2));
-    // ASSERT_THAT(suc[3], ElementsAre(2));
+    result = shift_left_digits(testVector.begin(), testVector.end(), 2, result);
+    ASSERT_EQ(result[0], 3);
+    ASSERT_EQ(result[1], 0);
+    ASSERT_EQ(result[2], 0);
 }
 
 
-TEST(PFDFixture, initialize2) {
-    istringstream r("1 1 4\n2 1 3\n");
-    vector<int> pre(5);
-    vector<vector<int>> suc(5);
 
-    pfd_initialize_adjacency_list(pre, suc, r, 2);
+TEST(IntegerFixture, shift_left3) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> result;
 
-    // ASSERT_THAT( pre[1], ElementsAre(1, 2));
-    // ASSERT_THAT( pre[2], ElementsAre(1, 2, 3));
-
-    ASSERT_EQ(pre[1], 1);
-    ASSERT_EQ(pre[2], 1);
-    ASSERT_EQ(pre[3], 0);
-    ASSERT_EQ(pre[4], 0);
-    ASSERT_EQ(suc[1].size(), 0);
-    ASSERT_EQ(suc[2].size(), 0);
-    ASSERT_EQ(suc[3].size(), 1);
-    ASSERT_EQ(suc[4].size(), 1);
-    // ASSERT_THAT(suc[1], ElementsAre(1, 2));
-    // ASSERT_THAT(suc[2], ElementsAre(1, 2));
-    // ASSERT_THAT(suc[3], ElementsAre(2));
+    result = shift_left_digits(testVector.begin(), testVector.end(), 3, result);
+    ASSERT_EQ(result[0], 0);
+    ASSERT_EQ(result[1], 0);
+    ASSERT_EQ(result[2], 0);
 }
+
 
 // ----
 // eval
 // ----
 
-TEST(PFDFixture, eval_1) {
-    vector<vector<int>> suc(6);
-    vector<int> one {3, 5};
-    vector<int> three {2, 4};
-    vector<int> five {3, 2};
+TEST(IntegerFixture, shift_right1) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> result;
 
-    suc[1] = one;
-    suc[3] = three;
-    suc[5] = five;
-
-    vector<int> pre {0, 0, 2, 2, 1, 1};
-    queue<int> results = pfd_eval(pre, suc);
-
-    // ASSERT_THAT(results, ElementsAre(1, 5, 3, 2, 4));}
-    ASSERT_EQ(results.size(), 5);
-    ASSERT_EQ(results.front(), 1);
-    results.pop();
-    ASSERT_EQ(results.front(), 5);
-    results.pop();
-    ASSERT_EQ(results.front(), 3);
-    results.pop();
-    ASSERT_EQ(results.front(), 2);
-    results.pop();
-    ASSERT_EQ(results.front(), 4);
-    results.pop();
+    result = shift_right_digits(testVector.begin(), testVector.end(), 1, result);
+    ASSERT_EQ(result[0], 0);
+    ASSERT_EQ(result[1], 1);
+    ASSERT_EQ(result[2], 2);
 }
 
-TEST(PFDFixture, eval_2) {
-    vector<vector<int>> suc(5);
-    vector<int> three {1};
-    vector<int> four {1};
+TEST(IntegerFixture, shift_right2) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> result;
 
-    suc[3] = three;
-    suc[4] = four;
-
-    vector<int> pre {0, 2, 0, 0, 0};
-    queue<int> results = pfd_eval(pre, suc);
-
-    ASSERT_EQ(results.size(), 4);
-    ASSERT_EQ(results.front(), 2);
-    results.pop();
-    ASSERT_EQ(results.front(), 3);
-    results.pop();
-    ASSERT_EQ(results.front(), 4);
-    results.pop();
-    ASSERT_EQ(results.front(), 1);
-    results.pop();
+    result = shift_right_digits(testVector.begin(), testVector.end(), 2, result);
+    ASSERT_EQ(result[0], 0);
+    ASSERT_EQ(result[1], 0);
+    ASSERT_EQ(result[2], 1);
 }
 
-TEST(PFDFixture, eval_3) {
-    vector<vector<int>> suc(5);
-    vector<int> three {2};
-    vector<int> four {1};
+TEST(IntegerFixture, shift_right3) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> result;
 
-    suc[3] = three;
-    suc[4] = four;
-
-    vector<int> pre {0, 1, 1, 0, 0};
-    queue<int> results = pfd_eval(pre, suc);
-
-    // ASSERT_THAT(results, ElementsAre(1, 5, 3, 2, 4));}
-    ASSERT_EQ(results.size(), 4);
-    ASSERT_EQ(results.front(), 3);
-    results.pop();
-    ASSERT_EQ(results.front(), 2);
-    results.pop();
-    ASSERT_EQ(results.front(), 4);
-    results.pop();
-    ASSERT_EQ(results.front(), 1);
-    results.pop();
+    result = shift_right_digits(testVector.begin(), testVector.end(), 3, result);
+    ASSERT_EQ(result[0], 0);
+    ASSERT_EQ(result[1], 0);
+    ASSERT_EQ(result[2], 0);
 }
 
 
-// -----
-// print
-// -----
 
-TEST(PFDFixture, print) {
-    ostringstream w;
-    queue<int> results;
-    results.push(1);
-    results.push(2);
-    results.push(3);
-    results.push(4);
-    results.push(5);
-    pfd_print_result(w, results);
-    ASSERT_EQ("1 2 3 4 5", w.str());}
-
-TEST(PFDFixture, print1) {
-    ostringstream w;
-    queue<int> results;
-    results.push(1);
-    pfd_print_result(w, results);
-    ASSERT_EQ("1", w.str());}
-
-// -----
-// solve
-// -----
-
-TEST(PFDFixture, solve) {
-    istringstream r("5 4\n3 2 1 5\n2 2 5 3\n4 1 3\n5 1 1");
-    ostringstream w;
-    pfd_solve(r, w);
-    ASSERT_EQ("1 5 3 2 4", w.str());}
-
-TEST(PFDFixture, solve1) {
-    istringstream r("4 1\n1 2 3 4\n");
-    ostringstream w;
-    pfd_solve(r, w);
-    ASSERT_EQ("2 3 4 1", w.str());}
-
-TEST(PFDFixture, solve2) {
-    istringstream r("4 2\n1 1 4\n2 1 3\n");
-    ostringstream w;
-    pfd_solve(r, w);
-    ASSERT_EQ("3 2 4 1", w.str());}
-
-TEST(PFDFixture, solve3) {
-    istringstream r("10 1\n1 9 2 3 4 5 6 7 8 9 10\n");
-    ostringstream w;
-    pfd_solve(r, w);
-    ASSERT_EQ("2 3 4 5 6 7 8 9 10 1", w.str());}
 
 /*
 % ls -al /usr/include/gtest/
