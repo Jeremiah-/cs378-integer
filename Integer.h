@@ -16,6 +16,7 @@
 #include <stdexcept> // invalid_argument
 #include <string>    // string
 #include <vector>    // vector
+#include <deque>     // deque
 
 // -----------------
 // shift_left_digits
@@ -71,6 +72,27 @@ FI shift_right_digits (II b, II e, int n, FI x) {
 template <typename II1, typename II2, typename FI>
 FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     // <your code>
+    int int1 = 0;
+    while(b1 != e1){
+        int1 *= 10;
+        int1 += *b1;
+        ++b1;
+    }
+    int int2 = 0;
+    while(b2 != e2){
+        int2 *= 10;
+        int1 += *b2;
+        ++b2;
+    }
+    int num = int1+int2;
+    std::deque<int> ret;
+    while(num > 0){
+        ret.push_front(num % 10);
+        num /= 10;
+    }
+
+    std::copy(ret.begin(), ret.end(), x);
+
     return x;}
 
 // ------------
@@ -91,6 +113,29 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 template <typename II1, typename II2, typename FI>
 FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     // <your code>
+    int int1 = 0;
+    while(b1 != e1){
+        int1 *= 10;
+        int1 += *b1;
+        ++b1;
+    }
+    int int2 = 0;
+    while(b2 != e2){
+        int2 *= 10;
+        int1 += *b2;
+        ++b2;
+    }
+    int max = std::max(int1, int2);
+    int min = std::min(int1, int2);
+    int num = max - min;
+    std::deque<int> ret;
+    while(num > 0){
+        ret.push_front(num % 10);
+        num /= 10;
+    }
+
+    std::copy(ret.begin(), ret.end(), x);
+    
     return x;}
 
 // -----------------
@@ -111,6 +156,27 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 template <typename II1, typename II2, typename FI>
 FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     // <your code>
+    int int1 = 0;
+    while(b1 != e1){
+        int1 *= 10;
+        int1 += *b1;
+        ++b1;
+    }
+    int int2 = 0;
+    while(b2 != e2){
+        int2 *= 10;
+        int1 += *b2;
+        ++b2;
+    }
+    int num = int1*int2;
+    std::deque<int> ret;
+    while(num > 0){
+        ret.push_front(num % 10);
+        num /= 10;
+    }
+
+    std::copy(ret.begin(), ret.end(), x);
+    
     return x;}
 
 // --------------
@@ -130,6 +196,29 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
+
+    // <your code>
+    int int1 = 0;
+    while(b1 != e1){
+        int1 *= 10;
+        int1 += *b1;
+        ++b1;
+    }
+    int int2 = 0;
+    while(b2 != e2){
+        int2 *= 10;
+        int1 += *b2;
+        ++b2;
+    }
+    int num = int1 / int2;
+    std::deque<int> ret;
+    while(num > 0){
+        ret.push_front(num % 10);
+        num /= 10;
+    }
+
+    std::copy(ret.begin(), ret.end(), x);
+    
     // <your code>
     return x;}
 
