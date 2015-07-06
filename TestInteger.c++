@@ -14,12 +14,11 @@
 #include <sstream>  // istringtstream, ostringstream
 #include <string>   // string
 #include <utility>  // pair
-#include <queue> //priority_queue
 #include <vector>
 
 #include "gtest/gtest.h"
 
-#include "PFD.h"
+#include "Integer.h"
 
 using namespace std;
 
@@ -30,7 +29,7 @@ using namespace std;
 
 
 // ----
-// pfd_initialize_adjacency_list
+// shift_left_digits
 // ----
 
 TEST(PFDFixture, initialize) {
