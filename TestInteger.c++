@@ -72,32 +72,29 @@ TEST(IntegerFixture, shift_left3) {
 
 TEST(IntegerFixture, shift_right1) {
     vector<int> testVector {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1, 2};
+    vector<int> result (2);
 
     shift_right_digits(testVector.begin(), testVector.end(), 1, result.begin());
-    ASSERT_EQ(result[0], 0);
-    ASSERT_EQ(result[1], 1);
-    ASSERT_EQ(result[2], 2);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, shift_right2) {
     vector<int> testVector {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1};
+    vector<int> result (1);
 
     shift_right_digits(testVector.begin(), testVector.end(), 2, result.begin());
-    ASSERT_EQ(result[0], 0);
-    ASSERT_EQ(result[1], 0);
-    ASSERT_EQ(result[2], 1);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, shift_right3) {
     vector<int> testVector {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {0};
+    vector<int> result (1);
 
     shift_right_digits(testVector.begin(), testVector.end(), 3, result.begin());
-    ASSERT_EQ(result[0], 0);
-    ASSERT_EQ(result[1], 0);
-    ASSERT_EQ(result[2], 0);
+    ASSERT_EQ(correctVector, result);
 }
 
 
