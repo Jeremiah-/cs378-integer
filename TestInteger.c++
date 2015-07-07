@@ -406,6 +406,187 @@ TEST(IntegerFixture, sConstructor6) {
     Integer<int> y ("-123456");
     ASSERT_TRUE(x == y);
 }
+
+// ----
+// minusOperator
+// ----
+
+TEST(IntegerFixture, minus1) {
+    Integer<int> x (123);
+    Integer<int> y (123);
+    ASSERT_EQ(0, x - y);
+}
+
+TEST(IntegerFixture, minus2) {
+    Integer<int> x (-123);
+    Integer<int> y (123);
+    ASSERT_EQ(-246, x - y);
+}
+
+TEST(IntegerFixture, minus3) {
+    Integer<int> x (-123);
+    Integer<int> y (-123);
+    ASSERT_EQ(0, x - y);
+}
+
+TEST(IntegerFixture, minus4) {
+    Integer<int> x (123);
+    Integer<int> y (-123);
+    ASSERT_EQ(246, x - y);
+}
+
+
+// ----
+// plusEqual
+// ----
+
+TEST(IntegerFixture, plusEqual1) {
+    Integer<int> x (123);
+    Integer<int> y (123);
+    ASSERT_EQ(246, x += y);
+}
+
+TEST(IntegerFixture, plusEqual2) {
+    Integer<int> x (123);
+    Integer<int> y (-123);
+    ASSERT_EQ(0, x += y);
+}
+
+TEST(IntegerFixture, plusEqual3) {
+    Integer<int> x (-123);
+    Integer<int> y (123);
+    ASSERT_EQ(0, x += y);
+}
+
+TEST(IntegerFixture, plusEqual4) {
+    Integer<int> x (-123);
+    Integer<int> y (-123);
+    ASSERT_EQ(-246, x += y);
+}
+
+
+// ----
+// minusEqual
+// ----
+
+TEST(IntegerFixture, minusEqual1) {
+    Integer<int> x (123);
+    Integer<int> y (123);
+    ASSERT_EQ(0, x -= y);
+}
+
+TEST(IntegerFixture, minusEqual2) {
+    Integer<int> x (123);
+    Integer<int> y (-123);
+    ASSERT_EQ(246, x -= y);
+}
+
+TEST(IntegerFixture, minusEqual3) {
+    Integer<int> x (-123);
+    Integer<int> y (123);
+    ASSERT_EQ(-246, x -= y);
+}
+
+TEST(IntegerFixture, minusEqual4) {
+    Integer<int> x (-123);
+    Integer<int> y (-123);
+    ASSERT_EQ(0, x -= y);
+}
+
+
+// ----
+// timesEqual
+// ----
+
+TEST(IntegerFixture, timesEqual1) {
+    Integer<int> x (123);
+    Integer<int> y (123);
+    ASSERT_EQ(15129, x *= y);
+}
+
+TEST(IntegerFixture, timesEqual2) {
+    Integer<int> x (123);
+    Integer<int> y (-123);
+    ASSERT_EQ(-15129, x *= y);
+}
+
+TEST(IntegerFixture, timesEqual3) {
+    Integer<int> x (-123);
+    Integer<int> y (123);
+    ASSERT_EQ(-15129, x *= y);
+}
+
+TEST(IntegerFixture, timesEqual4) {
+    Integer<int> x (-123);
+    Integer<int> y (-123);
+    ASSERT_EQ(15129, x *= y);
+}
+
+
+// ----
+// divideEqual
+// ----
+
+TEST(IntegerFixture, divideEqual1) {
+    Integer<int> x (123);
+    Integer<int> y (123);
+    ASSERT_EQ(1, x /= y);
+}
+
+TEST(IntegerFixture, divideEqual2) {
+    Integer<int> x (123);
+    Integer<int> y (-123);
+    ASSERT_EQ(-1, x /= y);
+}
+
+TEST(IntegerFixture, divideEqual3) {
+    Integer<int> x (-123);
+    Integer<int> y (123);
+    ASSERT_EQ(-1, x /= y);
+}
+
+TEST(IntegerFixture, divideEqual4) {
+    Integer<int> x (-123);
+    Integer<int> y (-123);
+    ASSERT_EQ(1, x /= y);
+}
+
+
+// ----
+// modulusEqual
+// ----
+
+TEST(IntegerFixture, modulusEqual1) {
+    Integer<int> x (123);
+    Integer<int> y (123);
+    ASSERT_EQ(0, x %= y);
+}
+
+TEST(IntegerFixture, modulusEqual2) {
+    Integer<int> x (123);
+    Integer<int> y (-123);
+    ASSERT_EQ(0, x %= y);
+}
+
+TEST(IntegerFixture, modulusEqual3) {
+    Integer<int> x (-123);
+    Integer<int> y (123);
+    ASSERT_EQ(0, x %= y);
+}
+
+TEST(IntegerFixture, modulusEqual4) {
+    Integer<int> x (123456);
+    Integer<int> y (123);
+    ASSERT_EQ(87, x %= y);
+}
+
+TEST(IntegerFixture, modulusEqual5) {
+    Integer<int> x (123);
+    Integer<int> y (123456);
+    ASSERT_EQ(123, x %= y);
+}
+
+
 /*
 % ls -al /usr/include/gtest/
 ...
