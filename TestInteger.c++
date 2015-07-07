@@ -15,6 +15,7 @@
 #include <string>   // string
 #include <utility>  // pair
 #include <vector>
+#include <deque>
 
 #include "gtest/gtest.h"
 
@@ -35,7 +36,7 @@ TEST(IntegerFixture, shift_left1) {
     vector<int> testVector {1, 2, 3};
     vector<int> result;
 
-    result = shift_left_digits(testVector.begin(), testVector.end(), 1, result);
+    shift_left_digits(testVector.begin(), testVector.end(), 1, result.begin());
     ASSERT_EQ(result[0], 2);
     ASSERT_EQ(result[1], 3);
     ASSERT_EQ(result[2], 0);
@@ -46,7 +47,7 @@ TEST(IntegerFixture, shift_left2) {
     vector<int> testVector {1, 2, 3};
     vector<int> result;
 
-    result = shift_left_digits(testVector.begin(), testVector.end(), 2, result);
+    shift_left_digits(testVector.begin(), testVector.end(), 2, result.begin());
     ASSERT_EQ(result[0], 3);
     ASSERT_EQ(result[1], 0);
     ASSERT_EQ(result[2], 0);
@@ -58,7 +59,7 @@ TEST(IntegerFixture, shift_left3) {
     vector<int> testVector {1, 2, 3};
     vector<int> result;
 
-    result = shift_left_digits(testVector.begin(), testVector.end(), 3, result);
+    shift_left_digits(testVector.begin(), testVector.end(), 3, result.begin());
     ASSERT_EQ(result[0], 0);
     ASSERT_EQ(result[1], 0);
     ASSERT_EQ(result[2], 0);
@@ -73,7 +74,7 @@ TEST(IntegerFixture, shift_right1) {
     vector<int> testVector {1, 2, 3};
     vector<int> result;
 
-    result = shift_right_digits(testVector.begin(), testVector.end(), 1, result);
+    shift_right_digits(testVector.begin(), testVector.end(), 1, result.begin());
     ASSERT_EQ(result[0], 0);
     ASSERT_EQ(result[1], 1);
     ASSERT_EQ(result[2], 2);
@@ -83,7 +84,7 @@ TEST(IntegerFixture, shift_right2) {
     vector<int> testVector {1, 2, 3};
     vector<int> result;
 
-    result = shift_right_digits(testVector.begin(), testVector.end(), 2, result);
+    shift_right_digits(testVector.begin(), testVector.end(), 2, result.begin());
     ASSERT_EQ(result[0], 0);
     ASSERT_EQ(result[1], 0);
     ASSERT_EQ(result[2], 1);
@@ -93,7 +94,7 @@ TEST(IntegerFixture, shift_right3) {
     vector<int> testVector {1, 2, 3};
     vector<int> result;
 
-    result = shift_right_digits(testVector.begin(), testVector.end(), 3, result);
+    shift_right_digits(testVector.begin(), testVector.end(), 3, result.begin());
     ASSERT_EQ(result[0], 0);
     ASSERT_EQ(result[1], 0);
     ASSERT_EQ(result[2], 0);
@@ -109,7 +110,7 @@ TEST(IntegerFixture, plus_digits1) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 2);
     ASSERT_EQ(result[1], 4);
     ASSERT_EQ(result[2], 6);
@@ -120,7 +121,7 @@ TEST(IntegerFixture, plus_digits2) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 3);
     ASSERT_EQ(result[2], 5);
@@ -132,7 +133,7 @@ TEST(IntegerFixture, plus_digits3) {
     vector<int> testVector2 {1, 2, 3, 4};
     vector<int> result;
 
-    result = plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 3);
     ASSERT_EQ(result[2], 5);
@@ -149,7 +150,7 @@ TEST(IntegerFixture, minus_digits1) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 0);
 }
 
@@ -158,7 +159,7 @@ TEST(IntegerFixture, minus_digits2) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 1);
     ASSERT_EQ(result[2], 1);
@@ -170,7 +171,7 @@ TEST(IntegerFixture, minus_digits3) {
     vector<int> testVector2 {1, 2, 3, 4};
     vector<int> result;
 
-    result = minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 1);
     ASSERT_EQ(result[2], 1);
@@ -186,7 +187,7 @@ TEST(IntegerFixture, multiplies_digits1) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 5);
     ASSERT_EQ(result[2], 1);
@@ -199,7 +200,7 @@ TEST(IntegerFixture, multiplies_digits2) {
     vector<int> testVector2 {1, 2, 3, 4};
     vector<int> result;
 
-    result = multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 5);
     ASSERT_EQ(result[2], 1);
@@ -213,7 +214,7 @@ TEST(IntegerFixture, multiplies_digits3) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 5);
     ASSERT_EQ(result[2], 1);
@@ -232,7 +233,7 @@ TEST(IntegerFixture, divides_digits1) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     // ASSERT_EQ(result[1], 5);
     // ASSERT_EQ(result[2], 1);
@@ -245,7 +246,7 @@ TEST(IntegerFixture, divides_digits2) {
     vector<int> testVector2 {1, 2, 3};
     vector<int> result;
 
-    result = divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 1);
     ASSERT_EQ(result[1], 0);
     // ASSERT_EQ(result[2], 1);
@@ -259,7 +260,7 @@ TEST(IntegerFixture, divides_digits3) {
     vector<int> testVector2 {1, 2, 3, 4};
     vector<int> result;
 
-    result = divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result);
+    divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(result[0], 0);
     // ASSERT_EQ(result[1], 0);
     // ASSERT_EQ(result[2], 1);
