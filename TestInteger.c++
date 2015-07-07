@@ -132,6 +132,35 @@ TEST(IntegerFixture, plus_digits3) {
     ASSERT_EQ(correctVector, result);
 }
 
+TEST(IntegerFixture, plus_digits4) {
+    vector<int> testVector1 {9, 9, 9};
+    vector<int> testVector2 {9, 9, 9};
+    vector<int> correctVector {1, 9, 8, 8};
+    vector<int> result (4);
+
+    plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
+TEST(IntegerFixture, plus_digits5) {
+    vector<int> testVector1 {9, 9, 9, 9, 9, 9, 9, 9, 9};
+    vector<int> testVector2 {9, 9, 9};
+    vector<int> correctVector {1,0,0,0,0,0,0,9,9,8};
+    vector<int> result (10);
+
+    plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
+TEST(IntegerFixture, plus_digits6) {
+    vector<int> testVector1 {1,2,3,4,5,6,7,8,9};
+    vector<int> testVector2 {1};
+    vector<int> correctVector {1,2,3,4,5,6,7,9,0};
+    vector<int> result (9);
+
+    plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
 
 // ----
 // minus_digits
