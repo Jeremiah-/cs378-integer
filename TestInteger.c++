@@ -27,9 +27,9 @@ using namespace std;
 // TestInteger
 // -----------
 
-
+ 
 // ----
-// shift_left_digits
+// shift_left_digits 
 // ----
 
 TEST(IntegerFixture, shift_left1) {
