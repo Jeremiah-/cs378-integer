@@ -33,7 +33,6 @@
  */
 template <typename II, typename FI>
 FI shift_left_digits (II b, II e, int n, FI x) {
-    // <your code>
     x = std::copy(b, e, x);
     fill(x, x + n, 0);
     return x + n;}
@@ -53,7 +52,6 @@ FI shift_left_digits (II b, II e, int n, FI x) {
  */
 template <typename II, typename FI>
 FI shift_right_digits (II b, II e, int n, FI x) {
-    // <your code>
     if(e - b < n){
         std::fill(x, x + 1, 0);
         x = x + 1;
@@ -80,7 +78,6 @@ FI shift_right_digits (II b, II e, int n, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    // <your code>
     int int1 = 0;
     while(b1 != e1){
         int1 *= 10;
@@ -90,7 +87,7 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     int int2 = 0;
     while(b2 != e2){
         int2 *= 10;
-        int1 += *b2;
+        int2 += *b2;
         ++b2;
     }
     int num = int1+int2;
@@ -121,7 +118,6 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    // <your code>
     int int1 = 0;
     while(b1 != e1){
         int1 *= 10;
@@ -131,7 +127,7 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     int int2 = 0;
     while(b2 != e2){
         int2 *= 10;
-        int1 += *b2;
+        int2 += *b2;
         ++b2;
     }
     int max = std::max(int1, int2);
@@ -164,7 +160,6 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    // <your code>
     int int1 = 0;
     while(b1 != e1){
         int1 *= 10;
@@ -174,7 +169,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     int int2 = 0;
     while(b2 != e2){
         int2 *= 10;
-        int1 += *b2;
+        int2 += *b2;
         ++b2;
     }
     int num = int1*int2;
@@ -205,8 +200,6 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-
-    // <your code>
     int int1 = 0;
     while(b1 != e1){
         int1 *= 10;
@@ -216,7 +209,7 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     int int2 = 0;
     while(b2 != e2){
         int2 *= 10;
-        int1 += *b2;
+        int2 += *b2;
         ++b2;
     }
     int num = int1 / int2;
@@ -227,8 +220,6 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
 
     std::copy(ret.begin(), ret.end(), x);
-    
-    // <your code>
     return x;}
 
 // -------
@@ -246,7 +237,7 @@ class Integer {
      */
     friend bool operator == (const Integer& lhs, const Integer& rhs) {
         // <your code>
-        if(lhs._x.size() != rhs._x.size()){
+        if(lhs._x.size() != rhs._x.size() || lhs.is_neg != rhs.is_neg){
             return false;
         }
         for(int i = 0; i < lhs._x.size(); i++){
@@ -423,6 +414,7 @@ class Integer {
         C _x; // the backing container
         // <your data>
 
+
     private:
         // -----
         // valid
@@ -431,6 +423,7 @@ class Integer {
         bool valid () const { // class invariant
             // <your code>
             return true;}
+        bool is_neg = false;
 
     public:
         // ------------
@@ -442,6 +435,23 @@ class Integer {
          */
         Integer (int value) {
             // <your code>
+            if(value < 0){
+                is_neg = true;
+                value = std::abs(value);
+            }
+            int result = 0;
+            while(value > 0){
+                result *= 10;
+                result += value % 10;
+                value /= 10;
+            }
+            int mod;
+            while(result > 0){
+                mod = result % 10;
+                _x.push_back(mod);
+                result -= mod;
+                result /= 10;
+            }
             assert(valid());}
 
         /**

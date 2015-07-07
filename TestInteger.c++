@@ -242,8 +242,8 @@ TEST(IntegerFixture, divides_digits3) {
 // ----
 
 TEST(IntegerFixture, equalEqual1) {
-    Integer<int> x (123);
-    Integer<int> y (321);
+    Integer<int> x = 123;
+    Integer<int> y = 321;
 
     ASSERT_FALSE(x == y);
 }
