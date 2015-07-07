@@ -300,7 +300,112 @@ TEST(IntegerFixture, equalEqual4) {
     ASSERT_FALSE(x == y);
 }
 
+TEST(IntegerFixture, equalEqual5) {
+    Integer<int> x (-123);
+    Integer<int> y (-123);
 
+    ASSERT_TRUE(x == y);
+}
+
+// ----
+// less_than
+// ----
+
+TEST(IntegerFixture, lessThan1) {
+    Integer<int> x (123);
+    Integer<int> y (321);
+
+    ASSERT_TRUE(x < y);
+}
+
+TEST(IntegerFixture, lessThan2) {
+    Integer<int> x (123);
+    Integer<int> y (321);
+
+    ASSERT_FALSE(y < x);
+}
+
+TEST(IntegerFixture, lessThan3) {
+    Integer<int> x (123);
+    Integer<int> y (-321);
+
+    ASSERT_FALSE(x < y);
+}
+
+TEST(IntegerFixture, lessThan4) {
+    Integer<int> x (123);
+    Integer<int> y (-321);
+
+    ASSERT_TRUE(y < x);
+}
+
+// ----
+// outStream
+// ----
+
+TEST(IntegerFixture, outStream1) {
+    ostringstream o;
+    Integer<int> y (123);
+    o << y;
+
+    EXPECT_EQ("123", o.str());
+}
+
+TEST(IntegerFixture, outStream2) {
+    ostringstream o;
+    Integer<int> y (-123);
+    o << y;
+
+    EXPECT_EQ("-123", o.str());
+}
+
+TEST(IntegerFixture, outStream3) {
+    ostringstream o;
+    Integer<int> y (-123654789);
+    o << y;
+
+    EXPECT_EQ("-123654789", o.str());
+}
+
+// ----
+// stringConstructor
+// ----
+
+TEST(IntegerFixture, sConstructor1) {
+    Integer<int> x ("123");
+    Integer<int> y (123);
+    ASSERT_TRUE(x == y);
+}
+
+TEST(IntegerFixture, sConstructor2) {
+    Integer<int> x ("123");
+    Integer<int> y (123);
+    ASSERT_TRUE(y == x);
+}
+
+TEST(IntegerFixture, sConstructor3) {
+    Integer<int> x ("123");
+    Integer<int> y ("123");
+    ASSERT_TRUE(y == x);
+}
+
+TEST(IntegerFixture, sConstructor4) {
+    Integer<int> x ("123456");
+    Integer<int> y ("123");
+    ASSERT_FALSE(y == x);
+}
+
+TEST(IntegerFixture, sConstructor5) {
+    Integer<int> x ("123456");
+    Integer<int> y ("-123456");
+    ASSERT_FALSE(x == y);
+}
+
+TEST(IntegerFixture, sConstructor6) {
+    Integer<int> x ("-123456");
+    Integer<int> y ("-123456");
+    ASSERT_TRUE(x == y);
+}
 /*
 % ls -al /usr/include/gtest/
 ...
