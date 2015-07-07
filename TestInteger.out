@@ -1,57 +1,57 @@
-==22306== Memcheck, a memory error detector
-==22306== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==22306== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==22306== Command: ./TestInteger
-==22306== 
+==15575== Memcheck, a memory error detector
+==15575== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==15575== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==15575== Command: ./TestInteger
+==15575== 
 Running main() from gtest_main.cc
-[==========] Running 41 tests from 1 test case.
+[==========] Running 86 tests from 1 test case.
 [----------] Global test environment set-up.
-[----------] 41 tests from IntegerFixture
+[----------] 86 tests from IntegerFixture
 [ RUN      ] IntegerFixture.shift_left1
-==22306== Invalid read of size 4
-==22306==    at 0x41F015: testing::AssertionResult testing::internal::CmpHelperEQ<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x41D325: testing::AssertionResult testing::internal::EqHelper<false>::Compare<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x404F92: IntegerFixture_shift_left1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x449C62: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43C67C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43C713: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43C814: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43CA8C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43CD6D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x404CDF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==22306== 
-==22306== 
-==22306== Process terminating with default action of signal 11 (SIGSEGV)
-==22306==  Access not within mapped region at address 0x0
-==22306==    at 0x41F015: testing::AssertionResult testing::internal::CmpHelperEQ<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x41D325: testing::AssertionResult testing::internal::EqHelper<false>::Compare<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x404F92: IntegerFixture_shift_left1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x449C62: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43C67C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43C713: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43C814: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43CA8C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x43CD6D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==    by 0x404CDF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==22306==  If you believe this happened as a result of a stack
-==22306==  overflow in your program's main thread (unlikely but
-==22306==  possible), you can try to increase the size of the
-==22306==  main thread stack using the --main-stacksize= flag.
-==22306==  The main thread stack size used in this run was 16777216.
-==22306== 
-==22306== HEAP SUMMARY:
-==22306==     in use at exit: 12,721 bytes in 186 blocks
-==22306==   total heap usage: 551 allocs, 365 frees, 57,566 bytes allocated
-==22306== 
-==22306== LEAK SUMMARY:
-==22306==    definitely lost: 0 bytes in 0 blocks
-==22306==    indirectly lost: 0 bytes in 0 blocks
-==22306==      possibly lost: 3,401 bytes in 89 blocks
-==22306==    still reachable: 9,320 bytes in 97 blocks
-==22306==         suppressed: 0 bytes in 0 blocks
-==22306== Rerun with --leak-check=full to see details of leaked memory
-==22306== 
-==22306== For counts of detected and suppressed errors, rerun with: -v
-==22306== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==15575== Invalid read of size 4
+==15575==    at 0x42C62D: testing::AssertionResult testing::internal::CmpHelperEQ<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x42A801: testing::AssertionResult testing::internal::EqHelper<false>::Compare<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x404F92: IntegerFixture_shift_left1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x45DCD2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x4506EC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450783: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450884: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450AFC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450DDD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x404CDF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==15575== 
+==15575== 
+==15575== Process terminating with default action of signal 11 (SIGSEGV)
+==15575==  Access not within mapped region at address 0x0
+==15575==    at 0x42C62D: testing::AssertionResult testing::internal::CmpHelperEQ<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x42A801: testing::AssertionResult testing::internal::EqHelper<false>::Compare<int, int>(char const*, char const*, int const&, int const&) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x404F92: IntegerFixture_shift_left1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x45DCD2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x4506EC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450783: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450884: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450AFC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x450DDD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==    by 0x404CDF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==15575==  If you believe this happened as a result of a stack
+==15575==  overflow in your program's main thread (unlikely but
+==15575==  possible), you can try to increase the size of the
+==15575==  main thread stack using the --main-stacksize= flag.
+==15575==  The main thread stack size used in this run was 16777216.
+==15575== 
+==15575== HEAP SUMMARY:
+==15575==     in use at exit: 25,126 bytes in 366 blocks
+==15575==   total heap usage: 958 allocs, 592 frees, 80,153 bytes allocated
+==15575== 
+==15575== LEAK SUMMARY:
+==15575==    definitely lost: 0 bytes in 0 blocks
+==15575==    indirectly lost: 0 bytes in 0 blocks
+==15575==      possibly lost: 6,758 bytes in 179 blocks
+==15575==    still reachable: 18,368 bytes in 187 blocks
+==15575==         suppressed: 0 bytes in 0 blocks
+==15575== Rerun with --leak-check=full to see details of leaked memory
+==15575== 
+==15575== For counts of detected and suppressed errors, rerun with: -v
+==15575== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 Segmentation fault (core dumped)

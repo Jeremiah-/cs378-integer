@@ -587,6 +587,157 @@ TEST(IntegerFixture, modulusEqual5) {
 }
 
 
+// ----
+// bitShiftLeftEqual
+// ----
+
+TEST(IntegerFixture, bitShiftLeftEqual1) {
+    Integer<int> x (123);
+    x <<= 1;
+    ASSERT_EQ(246, x);
+}
+
+TEST(IntegerFixture, bitShiftLeftEqual2) {
+    Integer<int> x (123);
+    x <<= 2;
+    ASSERT_EQ(492, x);
+}
+
+TEST(IntegerFixture, bitShiftLeftEqual3) {
+    Integer<int> x (123);
+    x <<= 3;
+    ASSERT_EQ(984, x);
+}
+
+TEST(IntegerFixture, bitShiftLeftEqual4) {
+    Integer<int> x (123);
+    x <<= 4;
+    ASSERT_EQ(1968, x);
+}
+
+TEST(IntegerFixture, bitShiftLeftEqual5) {
+    Integer<int> x (123);
+    x <<= 5;
+    ASSERT_EQ(3936, x);
+}
+
+// ----
+// bitShiftRightEqual
+// ----
+
+TEST(IntegerFixture, bitShiftRightEqual1) {
+    Integer<int> x (123);
+    x >>= 1;
+    ASSERT_EQ(61, x);
+}
+
+TEST(IntegerFixture, bitShiftRightEqual2) {
+    Integer<int> x (123);
+    x >>= 2;
+    ASSERT_EQ(30, x);
+}
+
+TEST(IntegerFixture, bitShiftRightEqual3) {
+    Integer<int> x (123);
+    x >>= 3;
+    ASSERT_EQ(15, x);
+}
+
+TEST(IntegerFixture, bitShiftRightEqual4) {
+    Integer<int> x (123);
+    x >>= 4;
+    ASSERT_EQ(7, x);
+}
+
+TEST(IntegerFixture, bitShiftRightEqual5) {
+    Integer<int> x (123);
+    x >>= 5;
+    ASSERT_EQ(3, x);
+}
+
+// ----
+// abs
+// ----
+
+TEST(IntegerFixture, abs1) {
+    Integer<int> x (123);
+    ASSERT_EQ(123, x.abs());
+}
+
+TEST(IntegerFixture, abs2) {
+    Integer<int> x (-123);
+    ASSERT_EQ(123, x.abs());
+}
+
+TEST(IntegerFixture, abs3) {
+    Integer<int> x ("-123");
+    ASSERT_EQ(123, x.abs());
+}
+
+TEST(IntegerFixture, abs4) {
+    Integer<int> x (0);
+    ASSERT_EQ(0, x.abs());
+}
+
+TEST(IntegerFixture, abs5) {
+    Integer<int> x ("123");
+    ASSERT_EQ(123, x.abs());
+}
+
+// ----
+// pow
+// ----
+
+TEST(IntegerFixture, pow1) {
+    Integer<int> x (123);
+    ASSERT_EQ(123, x.pow(1));
+}
+
+TEST(IntegerFixture, pow2) {
+    Integer<int> x (-123);
+    ASSERT_EQ(-123, x.pow(1));
+}
+
+TEST(IntegerFixture, pow3) {
+    Integer<int> x (123);
+    ASSERT_EQ(15129, x.pow(2));
+}
+
+TEST(IntegerFixture, pow4) {
+    Integer<int> x (-123);
+    ASSERT_EQ(15129, x.pow(2));
+}
+
+TEST(IntegerFixture, pow5) {
+    Integer<int> x (123);
+    ASSERT_EQ(1860867, x.pow(3));
+}
+
+TEST(IntegerFixture, pow6) {
+    Integer<int> x (123);
+    ASSERT_EQ(-1860867, x.pow(3));
+}
+
+TEST(IntegerFixture, pow7) {
+    Integer<int> x (123);
+    ASSERT_EQ(1, x.pow(0));
+}
+
+TEST(IntegerFixture, pow8) {
+    Integer<int> x (-123);
+    ASSERT_EQ(-1, x.pow(0));
+}
+
+TEST(IntegerFixture, pow9) {
+    Integer<int> x (123);
+    ASSERT_EQ(0, x.pow(-1));
+}
+
+TEST(IntegerFixture, pow10) {
+    Integer<int> x (-123);
+    ASSERT_EQ(0, x.pow(-1));
+}
+
 /*
 % ls -al /usr/include/gtest/
 ...
