@@ -267,6 +267,40 @@ TEST(IntegerFixture, divides_digits3) {
     // ASSERT_EQ(result[3], 2);
     // ASSERT_EQ(result[4], 9);
 }
+
+// ----
+// equalequal
+// ----
+
+TEST(IntegerFixture, equalEqual1) {
+    Integer<int> x (123);
+    Integer<int> y (321);
+
+    ASSERT_FALSE(x == y);
+}
+
+TEST(IntegerFixture, equalEqual2) {
+    Integer<int> x (123);
+    Integer<int> y (123);
+
+    ASSERT_TRUE(x == y);
+}
+
+TEST(IntegerFixture, equalEqual3) {
+    Integer<int> x (-123);
+    Integer<int> y (123);
+
+    ASSERT_FALSE(x == y);
+}
+
+TEST(IntegerFixture, equalEqual4) {
+    Integer<int> x (123);
+    Integer<int> y (-123);
+
+    ASSERT_FALSE(x == y);
+}
+
+
 /*
 % ls -al /usr/include/gtest/
 ...
