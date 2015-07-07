@@ -105,36 +105,31 @@ TEST(IntegerFixture, shift_right3) {
 TEST(IntegerFixture, plus_digits1) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {2, 4, 6};
+    vector<int> result (3);
 
     plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 2);
-    ASSERT_EQ(result[1], 4);
-    ASSERT_EQ(result[2], 6);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, plus_digits2) {
     vector<int> testVector1 {1, 2, 3, 4};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1, 3, 5, 7};
+    vector<int> result (4);
 
     plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 3);
-    ASSERT_EQ(result[2], 5);
-    ASSERT_EQ(result[3], 7);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, plus_digits3) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3, 4};
-    vector<int> result;
+    vector<int> correctVector {1, 3, 5, 7};
+    vector<int> result (4);
 
     plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 3);
-    ASSERT_EQ(result[2], 5);
-    ASSERT_EQ(result[3], 7);
+    ASSERT_EQ(correctVector, result);
 }
 
 
@@ -145,34 +140,31 @@ TEST(IntegerFixture, plus_digits3) {
 TEST(IntegerFixture, minus_digits1) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {0};
+    vector<int> result (1);
 
     minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 0);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, minus_digits2) {
     vector<int> testVector1 {1, 2, 3, 4};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1, 1, 1, 1};
+    vector<int> result (4);
 
     minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 1);
-    ASSERT_EQ(result[2], 1);
-    ASSERT_EQ(result[3], 1);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, minus_digits3) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3, 4};
-    vector<int> result;
+    vector<int> correctVector {1, 1, 1, 1};
+    vector<int> result (4);
 
     minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 1);
-    ASSERT_EQ(result[2], 1);
-    ASSERT_EQ(result[3], 1);
+    ASSERT_EQ(correctVector, result);
 }
 
 // ----
@@ -182,42 +174,31 @@ TEST(IntegerFixture, minus_digits3) {
 TEST(IntegerFixture, multiplies_digits1) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1, 5, 1, 2, 9};
+    vector<int> result (5);
 
     multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 5);
-    ASSERT_EQ(result[2], 1);
-    ASSERT_EQ(result[3], 2);
-    ASSERT_EQ(result[4], 9);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, multiplies_digits2) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3, 4};
-    vector<int> result;
+    vector<int> correctVector {1,5,1,7,8,2};
+    vector<int> result (6);
 
     multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 5);
-    ASSERT_EQ(result[2], 1);
-    ASSERT_EQ(result[3], 7);
-    ASSERT_EQ(result[4], 8);
-    ASSERT_EQ(result[5], 2);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, multiplies_digits3) {
     vector<int> testVector1 {1, 2, 3, 4};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1,5,1,7,8,2};
+    vector<int> result (6);
 
     multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 5);
-    ASSERT_EQ(result[2], 1);
-    ASSERT_EQ(result[3], 7);
-    ASSERT_EQ(result[4], 8);
-    ASSERT_EQ(result[5], 2);
+    ASSERT_EQ(correctVector, result);
 }
 
 
@@ -228,41 +209,32 @@ TEST(IntegerFixture, multiplies_digits3) {
 TEST(IntegerFixture, divides_digits1) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1};
+    vector<int> result (1);
 
     divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    // ASSERT_EQ(result[1], 5);
-    // ASSERT_EQ(result[2], 1);
-    // ASSERT_EQ(result[3], 2);
-    // ASSERT_EQ(result[4], 9);
+    ASSERT_EQ(correctVector, result);
 }
 
 TEST(IntegerFixture, divides_digits2) {
     vector<int> testVector1 {1, 2, 3, 4};
     vector<int> testVector2 {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1,0};
+    vector<int> result (2);
 
     divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 1);
-    ASSERT_EQ(result[1], 0);
-    // ASSERT_EQ(result[2], 1);
-    // ASSERT_EQ(result[3], 2);
-    // ASSERT_EQ(result[4], 9);
+    ASSERT_EQ(correctVector, result);
 }
 
 
 TEST(IntegerFixture, divides_digits3) {
     vector<int> testVector1 {1, 2, 3};
     vector<int> testVector2 {1, 2, 3, 4};
-    vector<int> result;
+    vector<int> correctVector {0};
+    vector<int> result (1);
 
     divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
-    ASSERT_EQ(result[0], 0);
-    // ASSERT_EQ(result[1], 0);
-    // ASSERT_EQ(result[2], 1);
-    // ASSERT_EQ(result[3], 2);
-    // ASSERT_EQ(result[4], 9);
+    ASSERT_EQ(correctVector, result);
 }
 
 // ----
