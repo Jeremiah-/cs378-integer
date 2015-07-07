@@ -32,37 +32,37 @@ using namespace std;
 // shift_left_digits 
 // ----
 
+
 TEST(IntegerFixture, shift_left1) {
     vector<int> testVector {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1, 2, 3, 0};
+    vector<int> result(4);
 
     shift_left_digits(testVector.begin(), testVector.end(), 1, result.begin());
-    ASSERT_EQ(result[0], 2);
-    ASSERT_EQ(result[1], 3);
-    ASSERT_EQ(result[2], 0);
+    ASSERT_EQ(correctVector, result);
 }
 
 
 TEST(IntegerFixture, shift_left2) {
     vector<int> testVector {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1, 2, 3, 0, 0};
+    vector<int> result(5);
 
     shift_left_digits(testVector.begin(), testVector.end(), 2, result.begin());
-    ASSERT_EQ(result[0], 3);
-    ASSERT_EQ(result[1], 0);
-    ASSERT_EQ(result[2], 0);
+    ASSERT_EQ(correctVector, result);
+
 }
 
 
 
 TEST(IntegerFixture, shift_left3) {
     vector<int> testVector {1, 2, 3};
-    vector<int> result;
+    vector<int> correctVector {1, 2, 3, 0, 0, 0};
+    vector<int> result(6);
 
     shift_left_digits(testVector.begin(), testVector.end(), 3, result.begin());
-    ASSERT_EQ(result[0], 0);
-    ASSERT_EQ(result[1], 0);
-    ASSERT_EQ(result[2], 0);
+    ASSERT_EQ(correctVector, result);
+
 }
 
 

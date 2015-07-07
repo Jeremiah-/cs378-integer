@@ -34,7 +34,9 @@
 template <typename II, typename FI>
 FI shift_left_digits (II b, II e, int n, FI x) {
     // <your code>
-    return x;}
+    x = std::copy(b, e, x);
+    fill(x, x + n, 0);
+    return x + n;}
 
 // ------------------
 // shift_right_digits
@@ -52,6 +54,13 @@ FI shift_left_digits (II b, II e, int n, FI x) {
 template <typename II, typename FI>
 FI shift_right_digits (II b, II e, int n, FI x) {
     // <your code>
+    // if(e - b < n){
+    //     *x = 0;
+    //     x = x.end();
+    // }
+    // else{
+    //     x = std::copy(b, e - n, x);
+    // }
     return x;}
 
 // -----------
