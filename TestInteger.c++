@@ -241,6 +241,16 @@ TEST(IntegerFixture, multiplies_digits3) {
     ASSERT_EQ(correctVector, result);
 }
 
+TEST(IntegerFixture, multiplies_digits4) {
+    vector<int> testVector1 {0};
+    vector<int> testVector2 {0};
+    vector<int> correctVector {0};
+    vector<int> result (1);
+
+    multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
 
 // ----
 // divides_digits
