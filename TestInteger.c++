@@ -563,27 +563,50 @@ TEST(IntegerFixture, plusEqual4) {
 TEST(IntegerFixture, minusEqual1) {
     Integer<int> x (123);
     Integer<int> y (123);
-    ASSERT_EQ(0, x -= y);
+    Integer<int> correct (0);
+    x -= y;
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, minusEqual2) {
     Integer<int> x (123);
     Integer<int> y (-123);
-    ASSERT_EQ(246, x -= y);
+    Integer<int> correct (246);
+    x -= y;
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, minusEqual3) {
     Integer<int> x (-123);
     Integer<int> y (123);
-    ASSERT_EQ(-246, x -= y);
+    Integer<int> correct (-246);
+    x -= y;
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, minusEqual4) {
     Integer<int> x (-123);
     Integer<int> y (-123);
-    ASSERT_EQ(0, x -= y);
+    Integer<int> correct (0);
+    x -= y;
+    ASSERT_TRUE(x == correct);
 }
 
+TEST(IntegerFixture, minusEqual5) {
+    Integer<int> x (-123);
+    Integer<int> y (-1235);
+    Integer<int> correct (1112);
+    x -= y;
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, minusEqual6) {
+    Integer<int> x (-123);
+    Integer<int> y (-1);
+    Integer<int> correct (-122);
+    x -= y;
+    ASSERT_TRUE(x == correct);
+}
 
 // ----
 // timesEqual
