@@ -409,7 +409,7 @@ TEST(IntegerFixture, lessThan7) {
     ASSERT_FALSE(y < x);
 }
 
-TEST(IntegerFixture, lessThan4) {
+TEST(IntegerFixture, lessThan8) {
     Integer<int> x (-123);
     Integer<int> y (-321);
 

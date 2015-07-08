@@ -212,9 +212,9 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     int first_size = e1 - b1;
     int second_size = e2 - b2;
 
-    std::deque<int> result {0};
+    std::vector<int> result {0};
 
-    std::deque<std::deque<int>> cache (10, std::deque<int>(first_size, 0));
+    std::vector<std::vector<int>> cache (10, std::vector<int>(first_size, 0));
 
     cache[0] = {0};
     std::copy(b1, e1, cache[1].begin());
@@ -245,7 +245,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
 
     int shift = 0;
-    std::deque<std::deque<int>> shifted_numbers (second_size, std::deque<int>());
+    std::vector<std::vector<int>> shifted_numbers (second_size, std::vector<int>());
 
     --e2;
 
@@ -277,7 +277,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
 
     // make a temp to help with computation
-    std::deque<int> temp = shifted_numbers[0];
+    std::vector<int> temp = shifted_numbers[0];
     
     // this loop adds all the shifted numbers together, which produces the answer
     for (int i = 1; i < second_size; ++i) {
@@ -390,11 +390,20 @@ class Integer {
      */
     friend bool operator < (const Integer& lhs, const Integer& rhs) {
         // <your code>
-        if(lhs._x.size() > rhs._x.size() || (!lhs.is_neg && rhs.is_neg) ){
+        if((!lhs.is_neg && rhs.is_neg)){
             return false;
-        } else if (lhs._x.size() < rhs._x.size() || (lhs.is_neg && !rhs.is_neg) ){
+        } else if ((lhs.is_neg && !rhs.is_neg)){
             return true;
-        } else {
+        } else if (lhs._x.size() > rhs._x.size() && (!lhs.is_neg && !rhs.is_neg) ) {
+            return false;
+        } else if (lhs._x.size() < rhs._x.size() && (!lhs.is_neg && !rhs.is_neg)) {
+            return true;
+        } else if (lhs._x.size() < rhs._x.size() && (lhs.is_neg && rhs.is_neg)) {
+            return false;
+        } else if (lhs._x.size() > rhs._x.size() && (lhs.is_neg && rhs.is_neg)) {
+            return true;
+        }
+        else if (!lhs.is_neg && !rhs.is_neg) {
             for(int i = 0; i < lhs._x.size(); i++){
                 if(lhs._x[i] < rhs._x[i]){
                     return true;
@@ -402,6 +411,14 @@ class Integer {
                     return false;
                 }
             }
+        } else {
+             for(int i = 0; i < lhs._x.size(); i++){
+                if(lhs._x[i] < rhs._x[i]){
+                    return false;
+                } else if (lhs._x[i] > rhs._x[i]){
+                    return true;
+                }
+            }           
         }
         return false;}
 
@@ -642,7 +659,7 @@ class Integer {
             // <your code>
             // make new Integer, save or return that
             
-            is_neg = !is_neg;
+            // is_neg = !is_neg;
             // if (is_neg) {
             //     *this.is_neg = false;
             // } else {
