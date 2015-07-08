@@ -415,6 +415,21 @@ TEST(IntegerFixture, lessThan8) {
 
     ASSERT_TRUE(y < x);
 }
+
+TEST(IntegerFixture, lessThan9) {
+    Integer<int> x (-54321);
+    Integer<int> y (-321);
+
+    ASSERT_TRUE(x < y);
+}
+
+TEST(IntegerFixture, lessThan10) {
+    Integer<int> x (123);
+    Integer<int> y (-4321);
+
+    ASSERT_FALSE(x < y);
+}
+
 // ----
 // outStream
 // ----
