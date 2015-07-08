@@ -550,6 +550,7 @@ class Integer {
 
         C _x; // the backing container
         // <your data>
+        bool is_neg = false;
 
 
     private:
@@ -559,9 +560,22 @@ class Integer {
 
         bool valid () const { // class invariant
             // <your code>
-            return true;}
-        bool is_neg = false;
+            // this is only used in the constructors so I guess we can just 
+            // iterate through the new vector and if anything is not 0 - 9,
+            // we return false
+            for (int i = 0; i < _x.size(); ++i) {
+                int num = _x[i];
 
+                // for the constructors, only an int or string is passed in. 
+                // not that worried for an int since the most we can get is one digit
+                // for string, we can just check that the char is '0' - '9' in the constructor
+
+                if (num > 9 || num < 0) {
+                    return false;
+                }
+            }
+            return true;}
+        
     public:
         // ------------
         // constructors
@@ -586,7 +600,7 @@ class Integer {
             while(result > 0){
                 mod = result % 10;
                 _x.push_back(mod);
-                result -= mod;
+                // result -= mod; // when dividing by 10, the end is chopped off anyways
                 result /= 10;
             }
             assert(valid());}
@@ -597,6 +611,18 @@ class Integer {
          */
         explicit Integer (const std::string& value) {
             // <your code>
+            int stop_here = 0;
+            if (value[0] == '-') {
+                is_neg = true;
+                stop_here = 1;
+            }
+
+
+            for (int i = value.length() - 1; i >= stop_here; --i) {
+                int num = value[i] - '0';
+                _x.push_back(num);
+            }
+
             if (!valid())
                 throw std::invalid_argument("Integer::Integer()");}
 
@@ -614,7 +640,18 @@ class Integer {
          */
         Integer operator - () const {
             // <your code>
-            return Integer(0);}
+            // make new Integer, save or return that
+            
+            is_neg = !is_neg;
+            // if (is_neg) {
+            //     *this.is_neg = false;
+            // } else {
+            //     this -> is_neg = true;
+            // }
+            
+            // return Integer(0);
+            return *this;
+        }
 
         // -----------
         // operator ++
