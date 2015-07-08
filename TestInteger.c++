@@ -187,14 +187,25 @@ TEST(IntegerFixture, minus_digits2) {
 }
 
 TEST(IntegerFixture, minus_digits3) {
-    vector<int> testVector1 {1, 2, 3};
-    vector<int> testVector2 {1, 2, 3, 4};
-    vector<int> correctVector {1, 1, 1, 1};
+    vector<int> testVector1 {0};
+    vector<int> testVector2 {0};
+    vector<int> correctVector {0};
+    vector<int> result (1);
+
+    minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
+TEST(IntegerFixture, minus_digits4) {
+    vector<int> testVector1 {4,1,2,3};
+    vector<int> testVector2 {7,8,9};
+    vector<int> correctVector {3,3,3,4};
     vector<int> result (4);
 
     minus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(correctVector, result);
 }
+
 
 // ----
 // multiplies_digits
