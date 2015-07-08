@@ -133,7 +133,7 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         }
     }
     
-    std::copy(result.begin(), result.end(), x);
+    x = std::copy(result.begin(), result.end(), x);
 
     // std::copy(ret.begin(), ret.end(), x);
 
@@ -184,8 +184,9 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     }
     if(result[0] == 0){
         std::fill(x, x+1, 0);
+        x += 1;
     } else {
-        std::copy(result.begin(), result.end(), x);
+        x = std::copy(result.begin(), result.end(), x);
     }
     
     return x;}
@@ -207,27 +208,55 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    int int1 = 0;
-    while(b1 != e1){
-        int1 *= 10;
-        int1 += *b1;
-        ++b1;
-    }
-    int int2 = 0;
-    while(b2 != e2){
-        int2 *= 10;
-        int2 += *b2;
-        ++b2;
-    }
-    int num = int1*int2;
-    std::deque<int> ret;
-    while(num > 0){
-        ret.push_front(num % 10);
-        num /= 10;
+    
+    std::deque<int> result {0};
+    // std::deque<int> temp (e1 - b1);
+    // std::copy(b1, e1, temp.begin());
+    std::deque<std::deque<int>> cache (10, std::deque<int>(e1 - b1));
+
+    cache[0] = {0};
+    // cache[1] = temp;
+    std::copy(b1, e1, cache[1]);
+    // std::copy(b1, e1, cache[1].begin());
+    std::cout << "size: " << cache[1].size() << std::endl;
+    std::cout << "cache at temp: " << cache[1].at(2) << std::endl;
+    for(int i = 0; i < cache[1].size(); i++){
+        std::cout << "at " << i << " value is: " << cache[1].at(i) << std::endl;
     }
 
-    // std::copy(ret.begin(), ret.end(), x);
+    for(int i = 2; i < 10; i++){
+        // if cache[i-1].at(0) + *b1 > 9 -> cache[i].push_back(0)
+        // to increase the size to take into account a size increase addition
+        if(cache[i - 1].at(0) + *b1 > 9){
+            cache[i].push_back(0);
+        }
+        plus_digits(b1, e1, cache[i-1].begin(), cache[i -1].end(), cache[i].begin());
+    }
+        
+    int shift = 0;
     
+    std::deque<std::deque<int>> shifted_numbers (e2 - b2, std::deque<int>(e2 - b2));
+
+    --e2;
+    while(b2 - 1 != e2) {
+        int num = *e2;
+
+        shifted_numbers[shift].resize(cache[num].size());
+        for (int i = 0; i < shift; ++1) {
+            shifted_numbers[shift].push_back(0);
+        }
+        shift_left_digits(cache[num].begin(), cache[num].end(), shift, shifted_numbers[shift].begin());
+
+        // size is cache[num].size() + shift
+        ++shift;
+        --e2;
+    }
+
+    for (int i = 0; i < e2 - b2; ++i) {
+        plus_digits(shifted_numbers[i].begin(), shifted_numbers[i].end(), result.begin(), result.end(), result.begin());
+    }
+
+    x = std::copy(result.begin(), result.end(), x);
     return x;}
 
 // --------------
@@ -573,6 +602,7 @@ class Integer {
          */
         Integer& operator += (const Integer& rhs) {
             // <your code>
+
             return *this;}
 
         // -----------
