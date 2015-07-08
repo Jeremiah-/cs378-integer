@@ -535,7 +535,14 @@ class Integer {
      */
     friend std::ostream& operator << (std::ostream& lhs, const Integer& rhs) {
         // <your code>
-        return lhs << "0";}
+        if (rhs.is_neg) {
+            lhs << "-";
+        }
+
+        for (int i = 0; i < _x.size(); ++i) {
+            lhs << _x[i];
+        }
+        return lhs;}
 
     // ---
     // abs
@@ -628,14 +635,14 @@ class Integer {
          */
         explicit Integer (const std::string& value) {
             // <your code>
-            int stop_here = 0;
+            int start_here = 0;
             if (value[0] == '-') {
                 is_neg = true;
-                stop_here = 1;
+                start_here = 1;
             }
 
 
-            for (int i = value.length() - 1; i >= stop_here; --i) {
+            for (int i = start_here; i < value.length(); ++i) {
                 int num = value[i] - '0';
                 _x.push_back(num);
             }
@@ -729,9 +736,39 @@ class Integer {
          */
         Integer& operator -= (const Integer& rhs) {
             // <your code>
-            // if (this.is_neg && rhs.is_neg) {
-            //     // subtraction to smaller neg
-            // } else if (!this.is_neg && rhs.is_neg) {
+            int size;
+
+            std::cout << "before -=. is_neg: " << is_neg << " and values: " << std::endl;
+
+            for(int i = 0; i < _x.size(); i++){
+                std::cout << _x [i] << std::endl;
+            }
+
+            if (is_neg && rhs.is_neg) {
+                // rhs - this
+                if (*this < rhs){ // rhs - this
+                    size = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.end(), _x.begin()) - _x.begin();
+                    is_neg = false;
+                    // std::cout << "new size  " << size << std::endl;
+                    _x.resize(size);
+                }
+                else if (*this > rhs){ // -(this - rhs)
+                    size = minus_digits(_x.begin(), _x.end(), rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
+                    is_neg = true;
+                    // std::cout << "new size  " << size << std::endl;
+                    _x.resize(size);
+                } else {
+                    _x = {0};
+                    is_neg = false;
+                }
+            }
+
+            std::cout << "after -= .is_neg " << is_neg << " and values: " << std::endl;
+            for(int i = 0; i < _x.size(); i++){
+                std::cout << _x [i] << std::endl;
+            }
+            // std::cout <<  
+            // else if (!this.is_neg && rhs.is_neg) {
             //     // addition to bigger positive
             // } else if (this.is_neg && !rhs.is_neg) {
             //     // addition to bigger neg
