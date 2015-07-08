@@ -213,20 +213,18 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     int second_size = e2 - b2;
 
     std::deque<int> result {0};
-    // std::deque<int> temp (e1 - b1);
-    // std::copy(b1, e1, temp.begin());
-    std::deque<std::deque<int>> cache (10, std::deque<int>(first_size));
+    std::deque<std::deque<int>> cache (10, std::deque<int>(first_size, 0));
 
     cache[0] = {0};
-    // cache[1] = temp;
     std::copy(b1, e1, cache[1].begin());
-    // std::copy(b1, e1, cache[1].begin());
     // std::cout << "size: " << cache[1].size() << std::endl;
     // std::cout << "cache at temp: " << cache[1].at(2) << std::endl;
     // for(int i = 0; i < cache[1].size(); i++){
     //     std::cout << "at " << i << " value is: " << cache[1].at(i) << std::endl;
     // }
 
+    // initialize the cache with multiples of [b1, e1)
+    // ex. for 123 * 24, cache[0] = 0. [1] = 12, [2] = 24, [3] = 36
     for(int i = 2; i < 10; i++){
 
         // this is to give the deque an extra space in case a new digit is added
@@ -242,11 +240,14 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
             cache[i].pop_back();
         }
     }
-        
+
     int shift = 0;
     std::deque<std::deque<int>> shifted_numbers (second_size, std::deque<int>());
 
     --e2;
+
+    // this loop gets the first number * the current digit, and shifts it appropriately
+    // for 123 * 243, cache[2] * 100, cache[4] * 10, cache[3]
     while(b2 - 1 != e2) {
         int num = *e2;
 
@@ -271,9 +272,8 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 
     // make a temp to help with computation
     std::deque<int> temp = shifted_numbers[0];
-
-    //resize to the biggest of the first addition
     
+    // this loop adds all the shifted numbers together, which produces the answer
     for (int i = 1; i < second_size; ++i) {
         // resize to the biggest of the ones that are going to be added
         result.resize(std::max(shifted_numbers[i - 1].size(), shifted_numbers[i].size()));

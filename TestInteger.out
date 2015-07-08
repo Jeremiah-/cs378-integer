@@ -1,8 +1,8 @@
-==28332== Memcheck, a memory error detector
-==28332== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
-==28332== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==28332== Command: ./TestInteger
-==28332== 
+==29025== Memcheck, a memory error detector
+==29025== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==29025== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==29025== Command: ./TestInteger
+==29025== 
 Running main() from gtest_main.cc
 [==========] Running 97 tests from 1 test case.
 [----------] Global test environment set-up.
@@ -10,23 +10,23 @@ Running main() from gtest_main.cc
 [ RUN      ] IntegerFixture.shift_left1
 [       OK ] IntegerFixture.shift_left1 (28 ms)
 [ RUN      ] IntegerFixture.shift_left2
-[       OK ] IntegerFixture.shift_left2 (3 ms)
+[       OK ] IntegerFixture.shift_left2 (4 ms)
 [ RUN      ] IntegerFixture.shift_left3
 [       OK ] IntegerFixture.shift_left3 (4 ms)
 [ RUN      ] IntegerFixture.shift_right1
 [       OK ] IntegerFixture.shift_right1 (5 ms)
 [ RUN      ] IntegerFixture.shift_right2
-[       OK ] IntegerFixture.shift_right2 (3 ms)
+[       OK ] IntegerFixture.shift_right2 (4 ms)
 [ RUN      ] IntegerFixture.shift_right3
-[       OK ] IntegerFixture.shift_right3 (3 ms)
+[       OK ] IntegerFixture.shift_right3 (4 ms)
 [ RUN      ] IntegerFixture.plus_digits1
-[       OK ] IntegerFixture.plus_digits1 (23 ms)
+[       OK ] IntegerFixture.plus_digits1 (24 ms)
 [ RUN      ] IntegerFixture.plus_digits2
-[       OK ] IntegerFixture.plus_digits2 (6 ms)
+[       OK ] IntegerFixture.plus_digits2 (7 ms)
 [ RUN      ] IntegerFixture.plus_digits3
 [       OK ] IntegerFixture.plus_digits3 (6 ms)
 [ RUN      ] IntegerFixture.plus_digits4
-[       OK ] IntegerFixture.plus_digits4 (8 ms)
+[       OK ] IntegerFixture.plus_digits4 (9 ms)
 [ RUN      ] IntegerFixture.plus_digits5
 [       OK ] IntegerFixture.plus_digits5 (5 ms)
 [ RUN      ] IntegerFixture.plus_digits6
@@ -34,118 +34,118 @@ Running main() from gtest_main.cc
 [ RUN      ] IntegerFixture.plus_digits7
 [       OK ] IntegerFixture.plus_digits7 (5 ms)
 [ RUN      ] IntegerFixture.minus_digits1
-[       OK ] IntegerFixture.minus_digits1 (9 ms)
+[       OK ] IntegerFixture.minus_digits1 (10 ms)
 [ RUN      ] IntegerFixture.minus_digits2
-[       OK ] IntegerFixture.minus_digits2 (5 ms)
+[       OK ] IntegerFixture.minus_digits2 (6 ms)
 [ RUN      ] IntegerFixture.minus_digits3
 [       OK ] IntegerFixture.minus_digits3 (5 ms)
 [ RUN      ] IntegerFixture.minus_digits4
-[       OK ] IntegerFixture.minus_digits4 (5 ms)
+[       OK ] IntegerFixture.minus_digits4 (6 ms)
 [ RUN      ] IntegerFixture.multiplies_digits1
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x431107: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42D44F: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40D254: IntegerFixture_multiplies_digits1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x4321EF: std::_Deque_iterator<int, int&, int*> plus_digits<std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42DE36: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40D254: IntegerFixture_multiplies_digits1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
-[       OK ] IntegerFixture.multiplies_digits1 (89 ms)
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x431197: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42D4A9: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40D254: IntegerFixture_multiplies_digits1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x43227F: std::_Deque_iterator<int, int&, int*> plus_digits<std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42DE90: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40D254: IntegerFixture_multiplies_digits1_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
+[       OK ] IntegerFixture.multiplies_digits1 (87 ms)
 [ RUN      ] IntegerFixture.multiplies_digits2
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x431107: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42D44F: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40DA6C: IntegerFixture_multiplies_digits2_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x4321EF: std::_Deque_iterator<int, int&, int*> plus_digits<std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42DE36: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40DA6C: IntegerFixture_multiplies_digits2_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x431197: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42D4A9: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40DA6C: IntegerFixture_multiplies_digits2_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x43227F: std::_Deque_iterator<int, int&, int*> plus_digits<std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42DE90: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40DA6C: IntegerFixture_multiplies_digits2_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
 [       OK ] IntegerFixture.multiplies_digits2 (7 ms)
 [ RUN      ] IntegerFixture.multiplies_digits3
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x431107: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42D44F: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40E284: IntegerFixture_multiplies_digits3_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x4321EF: std::_Deque_iterator<int, int&, int*> plus_digits<std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42DE36: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40E284: IntegerFixture_multiplies_digits3_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
-[       OK ] IntegerFixture.multiplies_digits3 (6 ms)
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x431197: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42D4A9: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40E284: IntegerFixture_multiplies_digits3_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x43227F: std::_Deque_iterator<int, int&, int*> plus_digits<std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42DE90: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40E284: IntegerFixture_multiplies_digits3_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
+[       OK ] IntegerFixture.multiplies_digits3 (7 ms)
 [ RUN      ] IntegerFixture.multiplies_digits4
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x431107: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42D44F: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40EA9C: IntegerFixture_multiplies_digits4_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
-[       OK ] IntegerFixture.multiplies_digits4 (7 ms)
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x431197: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42D4A9: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40EA9C: IntegerFixture_multiplies_digits4_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
+[       OK ] IntegerFixture.multiplies_digits4 (6 ms)
 [ RUN      ] IntegerFixture.multiplies_digits5
-==28332== Conditional jump or move depends on uninitialised value(s)
-==28332==    at 0x431107: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x42D44F: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x40F2B4: IntegerFixture_multiplies_digits5_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x470302: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462D1C: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462DB3: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x462EB4: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46312C: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x46340D: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
-==28332== 
+==29025== Conditional jump or move depends on uninitialised value(s)
+==29025==    at 0x431197: std::_Deque_iterator<int, int&, int*> plus_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*> >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x42D4A9: __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > multiplies_digits<__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > > >(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, __gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x40F2B4: IntegerFixture_multiplies_digits5_Test::TestBody() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4702D2: void testing::internal::HandleExceptionsInMethodIfSupported<testing::Test, void>(testing::Test*, void (testing::Test::*)(), char const*) (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462CEC: testing::Test::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462D83: testing::TestInfo::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x462E84: testing::TestCase::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4630FC: testing::internal::UnitTestImpl::RunAllTests() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x4633DD: testing::UnitTest::Run() (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025==    by 0x404DAF: main (in /v/filer4b/v38q001/jeremiah/Documents/cs378-integer/TestInteger)
+==29025== 
 [       OK ] IntegerFixture.multiplies_digits5 (6 ms)
 [ RUN      ] IntegerFixture.divides_digits1
 TestInteger.c++:285: Failure
@@ -153,16 +153,16 @@ Value of: result
   Actual: { 0 }
 Expected: correctVector
 Which is: { 1 }
-[  FAILED  ] IntegerFixture.divides_digits1 (36 ms)
+[  FAILED  ] IntegerFixture.divides_digits1 (35 ms)
 [ RUN      ] IntegerFixture.divides_digits2
 TestInteger.c++:295: Failure
 Value of: result
   Actual: { 0, 0 }
 Expected: correctVector
 Which is: { 1, 0 }
-[  FAILED  ] IntegerFixture.divides_digits2 (7 ms)
+[  FAILED  ] IntegerFixture.divides_digits2 (8 ms)
 [ RUN      ] IntegerFixture.divides_digits3
-[       OK ] IntegerFixture.divides_digits3 (5 ms)
+[       OK ] IntegerFixture.divides_digits3 (4 ms)
 [ RUN      ] IntegerFixture.divides_digits5
 TestInteger.c++:316: Failure
 Value of: result
@@ -175,11 +175,11 @@ Which is: { 1, 0, 0, 0, 4, 6 }
 [ RUN      ] IntegerFixture.equalEqual2
 [       OK ] IntegerFixture.equalEqual2 (3 ms)
 [ RUN      ] IntegerFixture.equalEqual3
-[       OK ] IntegerFixture.equalEqual3 (3 ms)
+[       OK ] IntegerFixture.equalEqual3 (2 ms)
 [ RUN      ] IntegerFixture.equalEqual4
 [       OK ] IntegerFixture.equalEqual4 (2 ms)
 [ RUN      ] IntegerFixture.equalEqual5
-[       OK ] IntegerFixture.equalEqual5 (2 ms)
+[       OK ] IntegerFixture.equalEqual5 (3 ms)
 [ RUN      ] IntegerFixture.lessThan1
 TestInteger.c++:366: Failure
 Value of: x < y
@@ -187,9 +187,9 @@ Value of: x < y
 Expected: true
 [  FAILED  ] IntegerFixture.lessThan1 (5 ms)
 [ RUN      ] IntegerFixture.lessThan2
-[       OK ] IntegerFixture.lessThan2 (3 ms)
+[       OK ] IntegerFixture.lessThan2 (2 ms)
 [ RUN      ] IntegerFixture.lessThan3
-[       OK ] IntegerFixture.lessThan3 (2 ms)
+[       OK ] IntegerFixture.lessThan3 (3 ms)
 [ RUN      ] IntegerFixture.lessThan4
 TestInteger.c++:387: Failure
 Value of: y < x
@@ -219,7 +219,7 @@ TestInteger.c++:425: Failure
 Value of: x == y
   Actual: false
 Expected: true
-[  FAILED  ] IntegerFixture.sConstructor1 (5 ms)
+[  FAILED  ] IntegerFixture.sConstructor1 (4 ms)
 [ RUN      ] IntegerFixture.sConstructor2
 TestInteger.c++:431: Failure
 Value of: y == x
@@ -239,27 +239,27 @@ TestInteger.c++:449: Failure
 Value of: x == y
   Actual: true
 Expected: false
-[  FAILED  ] IntegerFixture.sConstructor5 (5 ms)
+[  FAILED  ] IntegerFixture.sConstructor5 (4 ms)
 [ RUN      ] IntegerFixture.sConstructor6
-[       OK ] IntegerFixture.sConstructor6 (3 ms)
+[       OK ] IntegerFixture.sConstructor6 (4 ms)
 [ RUN      ] IntegerFixture.minus1
 TestInteger.c++:465: Failure
 Value of: x - y
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.minus1 (14 ms)
+[  FAILED  ] IntegerFixture.minus1 (16 ms)
 [ RUN      ] IntegerFixture.minus2
 TestInteger.c++:471: Failure
 Value of: x - y
   Actual: 0
 Expected: -246
-[  FAILED  ] IntegerFixture.minus2 (5 ms)
+[  FAILED  ] IntegerFixture.minus2 (4 ms)
 [ RUN      ] IntegerFixture.minus3
 TestInteger.c++:477: Failure
 Value of: x - y
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.minus3 (4 ms)
+[  FAILED  ] IntegerFixture.minus3 (5 ms)
 [ RUN      ] IntegerFixture.minus4
 TestInteger.c++:483: Failure
 Value of: x - y
@@ -277,7 +277,7 @@ TestInteger.c++:500: Failure
 Value of: x += y
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.plusEqual2 (4 ms)
+[  FAILED  ] IntegerFixture.plusEqual2 (3 ms)
 [ RUN      ] IntegerFixture.plusEqual3
 TestInteger.c++:506: Failure
 Value of: x += y
@@ -289,7 +289,7 @@ TestInteger.c++:512: Failure
 Value of: x += y
   Actual: 0
 Expected: -246
-[  FAILED  ] IntegerFixture.plusEqual4 (3 ms)
+[  FAILED  ] IntegerFixture.plusEqual4 (4 ms)
 [ RUN      ] IntegerFixture.minusEqual1
 TestInteger.c++:523: Failure
 Value of: x -= y
@@ -301,7 +301,7 @@ TestInteger.c++:529: Failure
 Value of: x -= y
   Actual: 0
 Expected: 246
-[  FAILED  ] IntegerFixture.minusEqual2 (4 ms)
+[  FAILED  ] IntegerFixture.minusEqual2 (3 ms)
 [ RUN      ] IntegerFixture.minusEqual3
 TestInteger.c++:535: Failure
 Value of: x -= y
@@ -313,7 +313,7 @@ TestInteger.c++:541: Failure
 Value of: x -= y
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.minusEqual4 (3 ms)
+[  FAILED  ] IntegerFixture.minusEqual4 (4 ms)
 [ RUN      ] IntegerFixture.timesEqual1
 TestInteger.c++:552: Failure
 Value of: x *= y
@@ -325,43 +325,43 @@ TestInteger.c++:558: Failure
 Value of: x *= y
   Actual: 0
 Expected: -15129
-[  FAILED  ] IntegerFixture.timesEqual2 (4 ms)
+[  FAILED  ] IntegerFixture.timesEqual2 (3 ms)
 [ RUN      ] IntegerFixture.timesEqual3
 TestInteger.c++:564: Failure
 Value of: x *= y
   Actual: 0
 Expected: -15129
-[  FAILED  ] IntegerFixture.timesEqual3 (4 ms)
+[  FAILED  ] IntegerFixture.timesEqual3 (3 ms)
 [ RUN      ] IntegerFixture.timesEqual4
 TestInteger.c++:570: Failure
 Value of: x *= y
   Actual: 0
 Expected: 15129
-[  FAILED  ] IntegerFixture.timesEqual4 (3 ms)
+[  FAILED  ] IntegerFixture.timesEqual4 (4 ms)
 [ RUN      ] IntegerFixture.divideEqual1
 TestInteger.c++:581: Failure
 Value of: x /= y
   Actual: 0
 Expected: 1
-[  FAILED  ] IntegerFixture.divideEqual1 (3 ms)
+[  FAILED  ] IntegerFixture.divideEqual1 (4 ms)
 [ RUN      ] IntegerFixture.divideEqual2
 TestInteger.c++:587: Failure
 Value of: x /= y
   Actual: 0
 Expected: -1
-[  FAILED  ] IntegerFixture.divideEqual2 (4 ms)
+[  FAILED  ] IntegerFixture.divideEqual2 (3 ms)
 [ RUN      ] IntegerFixture.divideEqual3
 TestInteger.c++:593: Failure
 Value of: x /= y
   Actual: 0
 Expected: -1
-[  FAILED  ] IntegerFixture.divideEqual3 (4 ms)
+[  FAILED  ] IntegerFixture.divideEqual3 (3 ms)
 [ RUN      ] IntegerFixture.divideEqual4
 TestInteger.c++:599: Failure
 Value of: x /= y
   Actual: 0
 Expected: 1
-[  FAILED  ] IntegerFixture.divideEqual4 (3 ms)
+[  FAILED  ] IntegerFixture.divideEqual4 (4 ms)
 [ RUN      ] IntegerFixture.modulusEqual1
 TestInteger.c++:610: Failure
 Value of: x %= y
@@ -373,13 +373,13 @@ TestInteger.c++:616: Failure
 Value of: x %= y
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.modulusEqual2 (4 ms)
+[  FAILED  ] IntegerFixture.modulusEqual2 (3 ms)
 [ RUN      ] IntegerFixture.modulusEqual3
 TestInteger.c++:622: Failure
 Value of: x %= y
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.modulusEqual3 (3 ms)
+[  FAILED  ] IntegerFixture.modulusEqual3 (4 ms)
 [ RUN      ] IntegerFixture.modulusEqual4
 TestInteger.c++:628: Failure
 Value of: x %= y
@@ -455,13 +455,13 @@ TestInteger.c++:717: Failure
 Value of: x.abs()
   Actual: 0
 Expected: 123
-[  FAILED  ] IntegerFixture.abs2 (4 ms)
+[  FAILED  ] IntegerFixture.abs2 (3 ms)
 [ RUN      ] IntegerFixture.abs3
 TestInteger.c++:722: Failure
 Value of: x.abs()
   Actual: 0
 Expected: 123
-[  FAILED  ] IntegerFixture.abs3 (3 ms)
+[  FAILED  ] IntegerFixture.abs3 (4 ms)
 [ RUN      ] IntegerFixture.abs4
 [       OK ] IntegerFixture.abs4 (2 ms)
 [ RUN      ] IntegerFixture.abs5
@@ -497,13 +497,13 @@ TestInteger.c++:766: Failure
 Value of: x.pow(3)
   Actual: 0
 Expected: -1860867
-[  FAILED  ] IntegerFixture.pow6 (4 ms)
+[  FAILED  ] IntegerFixture.pow6 (3 ms)
 [ RUN      ] IntegerFixture.pow7
 TestInteger.c++:771: Failure
 Value of: x.pow(0)
   Actual: 0
 Expected: 1
-[  FAILED  ] IntegerFixture.pow7 (3 ms)
+[  FAILED  ] IntegerFixture.pow7 (4 ms)
 [ RUN      ] IntegerFixture.pow8
 TestInteger.c++:776: Failure
 Value of: x.pow(0)
@@ -515,13 +515,13 @@ TestInteger.c++:781: Failure
 Value of: x.pow(-1)
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.pow9 (4 ms)
+[  FAILED  ] IntegerFixture.pow9 (3 ms)
 [ RUN      ] IntegerFixture.pow10
 TestInteger.c++:786: Failure
 Value of: x.pow(-1)
   Actual: 0
 Expected: 0
-[  FAILED  ] IntegerFixture.pow10 (3 ms)
+[  FAILED  ] IntegerFixture.pow10 (4 ms)
 [ RUN      ] IntegerFixture.negate1
 TestInteger.c++:798: Failure
 Value of: x
@@ -538,7 +538,7 @@ Which is: 0
 [  FAILED  ] IntegerFixture.negate2 (4 ms)
 [ RUN      ] IntegerFixture.negate3
 [       OK ] IntegerFixture.negate3 (4 ms)
-[----------] 97 tests from IntegerFixture (601 ms total)
+[----------] 97 tests from IntegerFixture (602 ms total)
 
 [----------] Global test environment tear-down
 [==========] 97 tests from 1 test case ran. (630 ms total)
@@ -605,13 +605,13 @@ Which is: 0
 [  FAILED  ] IntegerFixture.negate2
 
 59 FAILED TESTS
-==28332== 
-==28332== HEAP SUMMARY:
-==28332==     in use at exit: 0 bytes in 0 blocks
-==28332==   total heap usage: 4,756 allocs, 4,756 frees, 756,611 bytes allocated
-==28332== 
-==28332== All heap blocks were freed -- no leaks are possible
-==28332== 
-==28332== For counts of detected and suppressed errors, rerun with: -v
-==28332== Use --track-origins=yes to see where uninitialised values come from
-==28332== ERROR SUMMARY: 54 errors from 8 contexts (suppressed: 0 from 0)
+==29025== 
+==29025== HEAP SUMMARY:
+==29025==     in use at exit: 0 bytes in 0 blocks
+==29025==   total heap usage: 4,756 allocs, 4,756 frees, 756,614 bytes allocated
+==29025== 
+==29025== All heap blocks were freed -- no leaks are possible
+==29025== 
+==29025== For counts of detected and suppressed errors, rerun with: -v
+==29025== Use --track-origins=yes to see where uninitialised values come from
+==29025== ERROR SUMMARY: 54 errors from 8 contexts (suppressed: 0 from 0)
