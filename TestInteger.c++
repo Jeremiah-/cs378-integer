@@ -162,6 +162,16 @@ TEST(IntegerFixture, plus_digits6) {
     ASSERT_EQ(correctVector, result);
 }
 
+TEST(IntegerFixture, plus_digits7) {
+    vector<int> testVector1 {0};
+    vector<int> testVector2 {0};
+    vector<int> correctVector {0};
+    vector<int> result (1);
+
+    plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
 // ----
 // minus_digits
 // ----
