@@ -387,6 +387,34 @@ TEST(IntegerFixture, lessThan4) {
     ASSERT_TRUE(y < x);
 }
 
+
+TEST(IntegerFixture, lessThan5) {
+    Integer<int> x (123);
+    Integer<int> y (-4321);
+
+    ASSERT_TRUE(y < x);
+}
+
+TEST(IntegerFixture, lessThan6) {
+    Integer<int> x (0);
+    Integer<int> y (0);
+
+    ASSERT_FALSE(y < x);
+}
+
+TEST(IntegerFixture, lessThan7) {
+    Integer<int> x (-54321);
+    Integer<int> y (-321);
+
+    ASSERT_FALSE(y < x);
+}
+
+TEST(IntegerFixture, lessThan4) {
+    Integer<int> x (-123);
+    Integer<int> y (-321);
+
+    ASSERT_TRUE(y < x);
+}
 // ----
 // outStream
 // ----
