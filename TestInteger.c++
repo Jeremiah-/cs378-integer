@@ -241,6 +241,25 @@ TEST(IntegerFixture, multiplies_digits3) {
     ASSERT_EQ(correctVector, result);
 }
 
+TEST(IntegerFixture, multiplies_digits4) {
+    vector<int> testVector1 {0};
+    vector<int> testVector2 {0};
+    vector<int> correctVector {0};
+    vector<int> result (1);
+
+    multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
+TEST(IntegerFixture, multiplies_digits5) {
+    vector<int> testVector1 {1,2,3,4,5,6,7,8,9};
+    vector<int> testVector2 {0};
+    vector<int> correctVector {0};
+    vector<int> result (1);
+
+    multiplies_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
 
 // ----
 // divides_digits
@@ -272,6 +291,16 @@ TEST(IntegerFixture, divides_digits3) {
     vector<int> testVector2 {1, 2, 3, 4};
     vector<int> correctVector {0};
     vector<int> result (1);
+
+    divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
+TEST(IntegerFixture, divides_digits5) {
+    vector<int> testVector1 {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    vector<int> testVector2 {1, 2, 3, 4};
+    vector<int> correctVector {1,0,0,0,4,6};
+    vector<int> result (6);
 
     divides_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
     ASSERT_EQ(correctVector, result);
@@ -745,6 +774,35 @@ TEST(IntegerFixture, pow9) {
 TEST(IntegerFixture, pow10) {
     Integer<int> x (-123);
     ASSERT_EQ(0, x.pow(-1));
+}
+
+
+// ----
+// negate
+// ----
+
+TEST(IntegerFixture, negate1) {
+    Integer<int> x (123);
+    Integer<int> correctVector {-123};
+    x = -x;
+    ASSERT_EQ(correctVector, x);
+    ASSERT_TRUE(x == correctVector);
+}
+
+TEST(IntegerFixture, negate2) {
+    Integer<int> x (-123);
+    Integer<int> correctVector {123};
+    x = -x;
+    ASSERT_EQ(correctVector, x);
+    ASSERT_TRUE(x == correctVector);
+}
+
+TEST(IntegerFixture, negate3) {
+    Integer<int> x (0);
+    Integer<int> correctVector {0};
+    x = -x;
+    ASSERT_EQ(correctVector, x);
+    ASSERT_TRUE(x == correctVector);
 }
 
 /*
