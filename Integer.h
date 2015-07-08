@@ -213,6 +213,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     int second_size = e2 - b2;
 
     std::deque<int> result {0};
+
     std::deque<std::deque<int>> cache (10, std::deque<int>(first_size, 0));
 
     cache[0] = {0};
@@ -233,7 +234,9 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         cache[i].push_back(-1);
 
         // ERROR: this line is causing "Conditional jump or move depends on uninitialised value(s)"
-        plus_digits(b1, e1, cache[i-1].begin(), cache[i -1].end(), cache[i].begin());
+        int j = i-1;
+        
+        plus_digits(b1, e1, cache[j].begin(), cache[j].end(), cache[i].begin());
         
         // if the space wasn't used, get rid of it.
         if (cache[i].back() == -1) {
@@ -260,6 +263,9 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 
 
         shift_left_digits(cache[num].begin(), cache[num].end(), shift, shifted_numbers[shift].begin());
+
+
+
 
         // get rid of any unused space
         while (shifted_numbers[shift].back() == -1) {
@@ -384,6 +390,19 @@ class Integer {
      */
     friend bool operator < (const Integer& lhs, const Integer& rhs) {
         // <your code>
+        if(lhs._x.size() > rhs._x.size() || (!lhs.is_neg && rhs.is_neg) ){
+            return false;
+        } else if (lhs._x.size() < rhs._x.size() || (lhs.is_neg && !rhs.is_neg) ){
+            return true;
+        } else {
+            for(int i = 0; i < lhs._x.size(); i++){
+                if(lhs._x[i] < rhs._x[i]){
+                    return true;
+                } else if (lhs._x[i] > rhs._x[i]){
+                    return false;
+                }
+            }
+        }
         return false;}
 
     // -----------
