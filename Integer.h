@@ -78,26 +78,64 @@ FI shift_right_digits (II b, II e, int n, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    int int1 = 0;
-    while(b1 != e1){
-        int1 *= 10;
-        int1 += *b1;
-        ++b1;
-    }
-    int int2 = 0;
-    while(b2 != e2){
-        int2 *= 10;
-        int2 += *b2;
-        ++b2;
-    }
-    int num = int1+int2;
-    std::deque<int> ret;
-    while(num > 0){
-        ret.push_front(num % 10);
-        num /= 10;
-    }
+    int size1 =  e1 - b1;
+    int size2 = e2 - b2;
 
-    std::copy(ret.begin(), ret.end(), x);
+    int smallest_size = std::min(size1, size2);
+
+    std::deque<int> result;
+    int carry_num = 0;
+    int counter = 0;
+    // int back1 = size1 - 1;
+    // int back2 = size2 - 1;
+    --e1; --e2;
+    while (smallest_size > counter) {
+        int added_number = *e1 + *e2 + carry_num; // will never be over 18
+        if (added_number > 9) {
+            carry_num = added_number / 10;
+            result.push_front(added_number % 10);
+        } else {
+            result.push_front(added_number);
+            carry_num = 0;
+        }
+        ++counter;
+        --e1; --e2;
+    }
+    if (e1 - b1 >= 0) {
+        while (b1 - 1 != e1) {
+            int added_number = *e1 + carry_num; // will never be over 18
+            if (added_number > 9) {
+                carry_num = 1;
+                result.push_front(added_number % 10);
+            } else {
+                result.push_front(added_number);
+                carry_num = 0;
+            }
+            --e1;
+        }
+    } else if (e2 - b2 >= 0) {
+        while (b2 - 1 != e2) {
+            int added_number = *e2 + carry_num; // will never be over 18
+            if (added_number > 9) {
+                carry_num = added_number / 10;
+                result.push_front(added_number % 10);
+            } else {
+                result.push_front(added_number);
+                carry_num = 0;
+            }
+            --e2;
+        }
+    }
+    if(carry_num > 0){
+        while(carry_num > 0){
+            result.push_front(carry_num % 10);
+            carry_num /= 10;
+        }
+    }
+    
+    std::copy(result.begin(), result.end(), x);
+
+    // std::copy(ret.begin(), ret.end(), x);
 
     return x;}
 
@@ -118,28 +156,37 @@ FI plus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
  */
 template <typename II1, typename II2, typename FI>
 FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
-    int int1 = 0;
-    while(b1 != e1){
-        int1 *= 10;
-        int1 += *b1;
-        ++b1;
+    std::deque<int> result;
+    --e1;
+    --e2;
+    bool borrowed = false;
+    while(b1 - 1 != e1){
+        int top = *e1;
+        int bottom = 0;
+        if(e2 - b2 >= 0){
+            bottom = *e2; 
+        }
+        if(borrowed){
+            ++bottom;
+        }
+        if(top < bottom){
+            top += 10;
+            borrowed = true;
+        } else {
+            borrowed = false;
+        }
+        result.push_front(top - bottom);
+        --e1;
+        if(e2 - b2 >= 0){
+            --e2;
+        }
+        // if borrowed, do stuff
     }
-    int int2 = 0;
-    while(b2 != e2){
-        int2 *= 10;
-        int2 += *b2;
-        ++b2;
+    if(result[0] == 0){
+        std::fill(x, x+1, 0);
+    } else {
+        std::copy(result.begin(), result.end(), x);
     }
-    int max = std::max(int1, int2);
-    int min = std::min(int1, int2);
-    int num = max - min;
-    std::deque<int> ret;
-    while(num > 0){
-        ret.push_front(num % 10);
-        num /= 10;
-    }
-
-    std::copy(ret.begin(), ret.end(), x);
     
     return x;}
 
@@ -179,7 +226,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         num /= 10;
     }
 
-    std::copy(ret.begin(), ret.end(), x);
+    // std::copy(ret.begin(), ret.end(), x);
     
     return x;}
 
@@ -219,7 +266,7 @@ FI divides_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         num /= 10;
     }
 
-    std::copy(ret.begin(), ret.end(), x);
+    // std::copy(ret.begin(), ret.end(), x);
     return x;}
 
 // -------
@@ -537,6 +584,15 @@ class Integer {
          */
         Integer& operator -= (const Integer& rhs) {
             // <your code>
+            // if (this.is_neg && rhs.is_neg) {
+            //     // subtraction to smaller neg
+            // } else if (!this.is_neg && rhs.is_neg) {
+            //     // addition to bigger positive
+            // } else if (this.is_neg && !rhs.is_neg) {
+            //     // addition to bigger neg
+            // } else { // both positive
+            //     // subtraction to smaller postive
+            // }
             return *this;}
 
         // -----------

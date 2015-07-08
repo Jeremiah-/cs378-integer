@@ -135,7 +135,7 @@ TEST(IntegerFixture, plus_digits3) {
 TEST(IntegerFixture, plus_digits4) {
     vector<int> testVector1 {9, 9, 9};
     vector<int> testVector2 {9, 9, 9};
-    vector<int> correctVector {1, 9, 8, 8};
+    vector<int> correctVector {1, 9, 9, 8};
     vector<int> result (4);
 
     plus_digits(testVector1.begin(), testVector1.end(), testVector2.begin(), testVector2.end(), result.begin());
