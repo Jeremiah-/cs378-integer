@@ -1038,27 +1038,33 @@ TEST(IntegerFixture, bitShiftRightEqual5) {
 
 TEST(IntegerFixture, abs1) {
     Integer<int> x (123);
-    ASSERT_EQ(123, x.abs());
+    Integer<int> correct (123);
+
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, abs2) {
     Integer<int> x (-123);
-    ASSERT_EQ(123, x.abs());
+    Integer<int> correct (123);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, abs3) {
     Integer<int> x ("-123");
-    ASSERT_EQ(123, x.abs());
+    Integer<int> correct (123);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, abs4) {
     Integer<int> x (0);
-    ASSERT_EQ(0, x.abs());
+    Integer<int> correct (0);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, abs5) {
     Integer<int> x ("123");
-    ASSERT_EQ(123, x.abs());
+    Integer<int> correct (123);
+    ASSERT_TRUE(x == correct);
 }
 
 // ----
