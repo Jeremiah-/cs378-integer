@@ -534,27 +534,83 @@ TEST(IntegerFixture, minus4) {
 TEST(IntegerFixture, plusEqual1) {
     Integer<int> x (123);
     Integer<int> y (123);
-    ASSERT_EQ(246, x += y);
+    Integer<int> correct (246);
+    x += y;
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, plusEqual2) {
     Integer<int> x (123);
     Integer<int> y (-123);
-    ASSERT_EQ(0, x += y);
+    Integer<int> correct (0);
+    x += y;
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, plusEqual3) {
     Integer<int> x (-123);
     Integer<int> y (123);
-    ASSERT_EQ(0, x += y);
+    Integer<int> correct (0);
+    x += y;
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, plusEqual4) {
     Integer<int> x (-123);
     Integer<int> y (-123);
-    ASSERT_EQ(-246, x += y);
+    Integer<int> correct (-246);
+    x += y;
+    ASSERT_TRUE(x == correct);
 }
 
+TEST(IntegerFixture, plusEqual5) {
+    Integer<int> x (-12345);
+    Integer<int> y (-123);
+    Integer<int> correct (-12468);
+    x += y;
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, plusEqual6) {
+    Integer<int> x (12345);
+    Integer<int> y (-123);
+    Integer<int> correct (12222);
+    x += y;
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, plusEqual7) {
+    Integer<int> x (-12345);
+    Integer<int> y (123);
+    Integer<int> correct (-12222);
+    x += y;
+    ASSERT_TRUE(x == correct);
+}
+
+
+TEST(IntegerFixture, plusEqual8) {
+    Integer<int> x (-123);
+    Integer<int> y (-12345);
+    Integer<int> correct (-12468);
+    x += y;
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, plusEqual9) {
+    Integer<int> x (123);
+    Integer<int> y (-12345);
+    Integer<int> correct (-12222);
+    x += y;
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, plusEqual10) {
+    Integer<int> x (-123);
+    Integer<int> y (12345);
+    Integer<int> correct (12222);
+    x += y;
+    ASSERT_TRUE(x == correct);
+}
 
 // ----
 // minusEqual
