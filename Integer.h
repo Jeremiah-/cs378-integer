@@ -1006,6 +1006,33 @@ class Integer {
          */
         Integer& pow (int e) {
             // <your code>
+            Integer<int, C> zero (0);
+            if (((*this == zero) && (e == 0)) || (e < 0)) {
+                throw std::invalid_argument ("Exponent is less then zero. Not supported.");
+            }
+
+            if (e % 2 == 0) {
+                is_neg = false;
+            }
+
+            if (e == 0) {
+                _x = {1};
+                is_neg = false;
+                return *this;
+            }
+            Integer old_val = *this;
+            for (int i = 1; i < e; ++i) {
+                int offset = _x.end() - _x.begin();
+                // resize for max possible value
+
+                _x.resize( _x.size() + old_val._x.size() );
+
+                // pass in begin and old end, pass in rhs. write to _x
+                // multiplies_digits returns the new end()
+                // int size = multiplies_digits(_x.begin(), it_end, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
+                int size = multiplies_digits(_x.begin(), _x.begin() + offset, old_val._x.begin(), old_val._x.end(), _x.begin()) - _x.begin();
+                _x.resize(size);
+            }
             return *this;}};
 
 #endif 
