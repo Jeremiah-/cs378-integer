@@ -904,6 +904,23 @@ TEST(IntegerFixture, timesEqual15) {
     ASSERT_TRUE(x == correct);
 }
 
+TEST(IntegerFixture, timesEqual16) {
+    Integer<int> x (123);
+    Integer<int> correct (15129);
+    x *= x;
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, timesEqual17) {
+    Integer<int> x (123);
+    Integer<int> correct (228886641);
+    // std::cout <<"Before computation: " << x << std::endl;
+    x *= x;
+    // std::cout <<"actual number being computed once: " << x << std::endl;
+    x *= x;
+    // std::cout <<"actual number being computed twice: " << x << std::endl;
+    ASSERT_TRUE(x == correct);
+}
 
 // ----
 // divideEqual
