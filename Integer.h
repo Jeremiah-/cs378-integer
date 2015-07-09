@@ -17,6 +17,7 @@
 #include <string>    // string
 #include <vector>    // vector
 #include <deque>     // deque
+#include <sstream>
 
 // -----------------
 // shift_left_digits
@@ -610,25 +611,44 @@ class Integer {
          */
         Integer (int value) {
             // <your code>
-            if(value < 0){
+            std::stringstream num;
+            num << value;
+            // Integer<int> x (num.str());
+            // _x = x._x;
+            // is_neg = x.is_neg;
+
+            std::string string_num = num.str();
+            int start_here = 0;
+            if (string_num[0] == '-') {
                 is_neg = true;
-                value = std::abs(value);
-            } else if (value == 0) {
-                _x.push_back(0);
+                start_here = 1;
             }
-            int result = 0;
-            while(value > 0){
-                result *= 10;
-                result += value % 10;
-                value /= 10;
+
+            
+            for (int i = start_here; i < string_num.length(); ++i) {
+                int val = string_num[i] - '0';
+                _x.push_back(val);
             }
-            int mod; 
-            while(result > 0){
-                mod = result % 10;
-                _x.push_back(mod);
-                // result -= mod; // when dividing by 10, the end is chopped off anyways
-                result /= 10;
-            }
+            // *this = x;
+            // if(value < 0){
+            //     is_neg = true;
+            //     value = std::abs(value);
+            // } else if (value == 0) {
+            //     _x.push_back(0);
+            // }
+            // int result = 0;
+            // while(value > 0){
+            //     result *= 10;
+            //     result += value % 10;
+            //     value /= 10;
+            // }
+            // int mod; 
+            // while(result > 0){
+            //     mod = result % 10;
+            //     _x.push_back(mod);
+            //     // result -= mod; // when dividing by 10, the end is chopped off anyways
+            //     result /= 10;
+            // }
             assert(valid());}
 
         /**
@@ -667,7 +687,12 @@ class Integer {
         Integer operator - () const {
             // <your code>
             // make new Integer, save or return that
-            
+            Integer x = *this;
+            Integer<int> zero (0);
+            if (x != zero) {
+                x.is_neg = !is_neg;
+            }
+            // *this = x;
             // is_neg = !is_neg;
             // if (is_neg) {
             //     *this.is_neg = false;
@@ -676,7 +701,7 @@ class Integer {
             // }
             
             // return Integer(0);
-            return *this;
+            return x;
         }
 
         // -----------
@@ -918,16 +943,19 @@ class Integer {
          */
         Integer& operator <<= (int n) {
             // <your code>
+            if (n < 0) {
+                throw std::invalid_argument ("Shift number is less than zero.");
+            }
             if(n == 0){
                 return *this;
             }
             int offset = _x.end() - _x.begin();
             _x.resize(_x.size() + n);
             shift_left_digits(_x.begin(), _x.begin() + offset, n, _x.begin());
-            for(int i = 0; i < _x.size(); i++){
-                std::cout << _x[i];
-            }
-            std::cout << std::endl;
+            // for(int i = 0; i < _x.size(); i++){
+            //     std::cout << _x[i];
+            // }
+            // std::cout << std::endl;
             return *this;}
 
         // ------------
@@ -939,6 +967,9 @@ class Integer {
          */
         Integer& operator >>= (int n) {
             // <your code>
+            if (n < 0) {
+                throw std::invalid_argument ("Shift number is less than zero.");
+            }
             if(n == 0){
                 return *this;
             } else if (n >= _x.size()){

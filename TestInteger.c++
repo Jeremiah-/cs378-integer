@@ -494,26 +494,38 @@ TEST(IntegerFixture, sConstructor2) {
 }
 
 TEST(IntegerFixture, sConstructor3) {
+    Integer<int> x (0);
+    Integer<int> y ("0");
+    ASSERT_TRUE(x == y);
+}
+
+TEST(IntegerFixture, sConstructor4) {
     Integer<int> x ("123");
     Integer<int> y ("123");
     ASSERT_TRUE(y == x);
 }
 
-TEST(IntegerFixture, sConstructor4) {
+TEST(IntegerFixture, sConstructor5) {
     Integer<int> x ("123456");
     Integer<int> y ("123");
     ASSERT_FALSE(y == x);
 }
 
-TEST(IntegerFixture, sConstructor5) {
+TEST(IntegerFixture, sConstructor6) {
     Integer<int> x ("123456");
     Integer<int> y ("-123456");
     ASSERT_FALSE(x == y);
 }
 
-TEST(IntegerFixture, sConstructor6) {
+TEST(IntegerFixture, sConstructor7) {
     Integer<int> x ("-123456");
     Integer<int> y ("-123456");
+    ASSERT_TRUE(x == y);
+}
+
+TEST(IntegerFixture, sConstructor8) {
+    Integer<int> x ("0");
+    Integer<int> y ("0");
     ASSERT_TRUE(x == y);
 }
 
@@ -963,7 +975,6 @@ TEST(IntegerFixture, bitShiftLeftEqual1) {
     Integer<int> x (123);
     Integer<int> correct (1230);
     x <<= 1;
-    std::cout << correct <<  " " << x << std::endl;
     ASSERT_TRUE(x == correct);
 }
 
@@ -992,7 +1003,6 @@ TEST(IntegerFixture, bitShiftLeftEqual5) {
     Integer<int> x (123);
     Integer<int> correct (12300000);
     x <<= 5;
-    std::cout << correct <<  " " << x << std::endl;
     ASSERT_TRUE(x == correct);
 }
 
