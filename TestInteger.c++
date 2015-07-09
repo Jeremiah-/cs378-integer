@@ -107,6 +107,15 @@ TEST(IntegerFixture, shift_right3) {
     ASSERT_EQ(correctVector, result);
 }
 
+TEST(IntegerFixture, shift_right4) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> correctVector {1, 2, 3};
+    vector<int> result (1);
+
+    shift_right_digits(testVector.begin(), testVector.end(), 0, result.begin());
+    ASSERT_EQ(correctVector, result);
+}
+
 
 // ----
 // plus_digits
