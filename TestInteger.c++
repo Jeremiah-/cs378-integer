@@ -110,7 +110,7 @@ TEST(IntegerFixture, shift_right3) {
 TEST(IntegerFixture, shift_right4) {
     vector<int> testVector {1, 2, 3};
     vector<int> correctVector {1, 2, 3};
-    vector<int> result (1);
+    vector<int> result (3);
 
     shift_right_digits(testVector.begin(), testVector.end(), 0, result.begin());
     ASSERT_EQ(correctVector, result);
@@ -963,6 +963,7 @@ TEST(IntegerFixture, bitShiftLeftEqual1) {
     Integer<int> x (123);
     Integer<int> correct (1230);
     x <<= 1;
+    std::cout << correct <<  " " << x << std::endl;
     ASSERT_TRUE(x == correct);
 }
 
@@ -991,6 +992,7 @@ TEST(IntegerFixture, bitShiftLeftEqual5) {
     Integer<int> x (123);
     Integer<int> correct (12300000);
     x <<= 5;
+    std::cout << correct <<  " " << x << std::endl;
     ASSERT_TRUE(x == correct);
 }
 

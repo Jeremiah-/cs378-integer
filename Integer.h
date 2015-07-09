@@ -622,7 +622,7 @@ class Integer {
                 result += value % 10;
                 value /= 10;
             }
-            int mod;
+            int mod; 
             while(result > 0){
                 mod = result % 10;
                 _x.push_back(mod);
@@ -918,6 +918,16 @@ class Integer {
          */
         Integer& operator <<= (int n) {
             // <your code>
+            if(n == 0){
+                return *this;
+            }
+            int offset = _x.end() - _x.begin();
+            _x.resize(_x.size() + n);
+            shift_left_digits(_x.begin(), _x.begin() + offset, n, _x.begin());
+            for(int i = 0; i < _x.size(); i++){
+                std::cout << _x[i];
+            }
+            std::cout << std::endl;
             return *this;}
 
         // ------------
@@ -929,6 +939,16 @@ class Integer {
          */
         Integer& operator >>= (int n) {
             // <your code>
+            if(n == 0){
+                return *this;
+            } else if (n >= _x.size()){
+                _x = {0};
+                is_neg = false;
+                return *this;
+            }
+            int offset = _x.end() - _x.begin();
+            _x.resize(offset - n);
+            shift_right_digits(_x.begin(), _x.begin() + offset, n, _x.begin());
             return *this;}
 
         // ---
