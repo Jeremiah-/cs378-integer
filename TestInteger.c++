@@ -65,6 +65,16 @@ TEST(IntegerFixture, shift_left3) {
 
 }
 
+TEST(IntegerFixture, shift_left4) {
+    vector<int> testVector {1, 2, 3};
+    vector<int> correctVector {1, 2, 3};
+    vector<int> result(3);
+
+    shift_left_digits(testVector.begin(), testVector.end(), 0, result.begin());
+    ASSERT_EQ(correctVector, result);
+
+}
+
 
 // ----
 // shift_right_digits
@@ -496,34 +506,6 @@ TEST(IntegerFixture, sConstructor6) {
     Integer<int> x ("-123456");
     Integer<int> y ("-123456");
     ASSERT_TRUE(x == y);
-}
-
-// ----
-// minusOperator
-// ----
-
-TEST(IntegerFixture, minus1) {
-    Integer<int> x (123);
-    Integer<int> y (123);
-    ASSERT_EQ(0, x - y);
-}
-
-TEST(IntegerFixture, minus2) {
-    Integer<int> x (-123);
-    Integer<int> y (123);
-    ASSERT_EQ(-246, x - y);
-}
-
-TEST(IntegerFixture, minus3) {
-    Integer<int> x (-123);
-    Integer<int> y (-123);
-    ASSERT_EQ(0, x - y);
-}
-
-TEST(IntegerFixture, minus4) {
-    Integer<int> x (123);
-    Integer<int> y (-123);
-    ASSERT_EQ(246, x - y);
 }
 
 
@@ -970,32 +952,44 @@ TEST(IntegerFixture, modulusEqual5) {
 
 TEST(IntegerFixture, bitShiftLeftEqual1) {
     Integer<int> x (123);
+    Integer<int> correct (1230);
     x <<= 1;
-    ASSERT_EQ(246, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftLeftEqual2) {
     Integer<int> x (123);
+    Integer<int> correct (12300);
     x <<= 2;
-    ASSERT_EQ(492, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftLeftEqual3) {
     Integer<int> x (123);
+    Integer<int> correct (123000);
     x <<= 3;
-    ASSERT_EQ(984, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftLeftEqual4) {
     Integer<int> x (123);
+    Integer<int> correct (1230000);
     x <<= 4;
-    ASSERT_EQ(1968, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftLeftEqual5) {
     Integer<int> x (123);
+    Integer<int> correct (12300000);
     x <<= 5;
-    ASSERT_EQ(3936, x);
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, bitShiftLeftEqual6) {
+    Integer<int> x (123);
+    Integer<int> correct (123);
+    x <<= 0;
+    ASSERT_TRUE(x == correct);
 }
 
 // ----
@@ -1003,33 +997,45 @@ TEST(IntegerFixture, bitShiftLeftEqual5) {
 // ----
 
 TEST(IntegerFixture, bitShiftRightEqual1) {
-    Integer<int> x (123);
+    Integer<int> x (12345);
+    Integer<int> correct (1234);
     x >>= 1;
-    ASSERT_EQ(61, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftRightEqual2) {
-    Integer<int> x (123);
+    Integer<int> x (12345);
+    Integer<int> correct (123);
     x >>= 2;
-    ASSERT_EQ(30, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftRightEqual3) {
-    Integer<int> x (123);
+    Integer<int> x (12345);
+    Integer<int> correct (12);
     x >>= 3;
-    ASSERT_EQ(15, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftRightEqual4) {
-    Integer<int> x (123);
+    Integer<int> x (12345);
+    Integer<int> correct (1);
     x >>= 4;
-    ASSERT_EQ(7, x);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, bitShiftRightEqual5) {
-    Integer<int> x (123);
+    Integer<int> x (12345);
+    Integer<int> correct (0);
     x >>= 5;
-    ASSERT_EQ(3, x);
+    ASSERT_TRUE(x == correct);
+}
+
+TEST(IntegerFixture, bitShiftRightEqual6) {
+    Integer<int> x (12345);
+    Integer<int> correct (12345);
+    x >>= 0;
+    ASSERT_TRUE(x == correct);
 }
 
 // ----
@@ -1132,26 +1138,23 @@ TEST(IntegerFixture, pow10) {
 
 TEST(IntegerFixture, negate1) {
     Integer<int> x (123);
-    Integer<int> correctVector {-123};
+    Integer<int> correct (-123);
     x = -x;
-    ASSERT_EQ(correctVector, x);
-    ASSERT_TRUE(x == correctVector);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, negate2) {
     Integer<int> x (-123);
-    Integer<int> correctVector {123};
+    Integer<int> correct (123);
     x = -x;
-    ASSERT_EQ(correctVector, x);
-    ASSERT_TRUE(x == correctVector);
+    ASSERT_TRUE(x == correct);
 }
 
 TEST(IntegerFixture, negate3) {
     Integer<int> x (0);
-    Integer<int> correctVector {0};
+    Integer<int> correct (0);
     x = -x;
-    ASSERT_EQ(correctVector, x);
-    ASSERT_TRUE(x == correctVector);
+    ASSERT_TRUE(x == correct);
 }
 
 /*
