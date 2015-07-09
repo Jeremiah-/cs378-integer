@@ -1077,7 +1077,6 @@ TEST(IntegerFixture, abs5) {
 
 TEST(IntegerFixture, pow1) {
     Integer<int> x (123);
-    Integer<
     ASSERT_EQ(123, x.pow(1));
 }
 

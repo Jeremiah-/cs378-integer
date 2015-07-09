@@ -209,11 +209,11 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 template <typename II1, typename II2, typename FI>
 FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     
+
     int first_size = e1 - b1;
     int second_size = e2 - b2;
 
     std::vector<int> result {0};
-
     std::vector<std::vector<int>> cache (10, std::vector<int>(first_size, 0));
 
     cache[0] = {0};
@@ -226,6 +226,8 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 
     // initialize the cache with multiples of [b1, e1)
     // ex. for 123 * 24, cache[0] = 0. [1] = 12, [2] = 24, [3] = 36
+
+
     for(int i = 2; i < 10; i++){
 
         // this is to give the deque an extra space in case a new digit is added
@@ -244,11 +246,12 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         }
     }
 
+
     int shift = 0;
     std::vector<std::vector<int>> shifted_numbers (second_size, std::vector<int>());
 
-    --e2;
 
+    --e2;
     // this loop gets the first number * the current digit, and shifts it appropriately
     // for 123 * 243, cache[2] * 100, cache[4] * 10, cache[3]
     while(b2 - 1 != e2) {
@@ -261,10 +264,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
             shifted_numbers[shift].push_back(-1); // add in for space
         }
 
-
         shift_left_digits(cache[num].begin(), cache[num].end(), shift, shifted_numbers[shift].begin());
-
-
 
 
         // get rid of any unused space
@@ -275,6 +275,7 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         ++shift;
         --e2;
     }
+    
 
     // make a temp to help with computation
     std::vector<int> temp = shifted_numbers[0];
@@ -286,7 +287,6 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         
         // push for extra size
         result.push_back(-1);
-
 
         plus_digits(shifted_numbers[i].begin(), shifted_numbers[i].end(), temp.begin(), temp.end(), result.begin());
         
@@ -300,7 +300,6 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         temp.resize(result.size());
         std::copy(result.begin(), result.end(), temp.begin());
     }
-
     if (result[0] == 0) {
         result = {0};
     }
@@ -727,14 +726,56 @@ class Integer {
          */
         Integer& operator += (const Integer& rhs) {
             // <your code>
-            typename C::iterator it_end = _x.end();
-            Integer<int> temp (0);
-            if(!is_neg && !rhs.is_neg){
-                plus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), it_end, _x.begin());
-            } 
-            for(int i = 0; i < _x.size(); i++){
-                std::cout << "end result: " << _x[i] << std::endl;
+            int offset = _x.end() - _x.begin();
+            Integer<int> zero (0);
+            Integer tempRhs = rhs;
+            Integer tempLhs = *this;
+
+            tempRhs.abs();
+            tempLhs.abs();
+            int size;
+
+
+            
+            if (*this == zero) {
+                _x = rhs._x;
+                is_neg = rhs.is_neg;
+                return *this;
+            } else if (rhs == zero) {
+                return *this;
+            } else if (!is_neg && rhs.is_neg){
+                _x.resize(std::max(_x.size(), rhs._x.size()) + 1);
+                if(tempLhs > tempRhs) {
+                    is_neg = false;
+                    size = minus_digits(_x.begin(), _x.begin() + offset, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
+                } else if (tempLhs < tempRhs) {
+                    is_neg = true;
+                    size = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset,  _x.begin()) - _x.begin();
+                } else {
+                    _x = {0};
+                    is_neg = false;
+                    return *this;
+                }
+            } else if (is_neg && !rhs.is_neg){
+                _x.resize(std::max(_x.size(), rhs._x.size()) + 1);
+                if (tempLhs > tempRhs){
+                    is_neg = true;
+                    size = minus_digits(_x.begin(), _x.begin() + offset, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();                   
+                } else if (tempLhs < tempRhs) {
+                    is_neg = false;
+                    size = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset,  _x.begin()) - _x.begin();                    
+                } else {
+                    _x = {0};
+                    is_neg = false;
+                    return *this;                    
+                }
+
+            } else {
+                _x.resize(std::max(_x.size(), rhs._x.size()) + 1);
+                size = plus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset, _x.begin()) - _x.begin();
             }
+
+            _x.resize(size);
             return *this;}
 
         // -----------
@@ -749,28 +790,19 @@ class Integer {
             int size;
             // HAVE TO CONSIDER THAT _X MAY BE TOO SMALL OR TOO BIG. GOTTA RESIZE
 
-            // std::cout << "before -=. is_neg: " << is_neg << " and values: " << std::endl;
+            int offset = _x.end() - _x.begin();
 
-            // for(int i = 0; i < _x.size(); i++){
-            //     std::cout << _x [i] << std::endl;
-            // }
-            // C temp (std::max(_x.size(), rhs._x.size()));
-            // std::cout << "in -=" << std::endl;
-            typename C::iterator it_end = _x.end();
             _x.resize(std::max(_x.size(), rhs._x.size()));
             if (is_neg && rhs.is_neg) {
                 // rhs - this
                 if (*this > rhs){ // rhs - this
-                    size = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), it_end, _x.begin()) - _x.begin();
+                    size = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset, _x.begin()) - _x.begin();
                     is_neg = false;
                     _x.resize(size);
-                    // std::cout << "new size, in *this < rhs:  " << size << std::endl;
-
-                    // std::copy(temp.begin(), temp.end(), _x.begin());
                     
                 }
                 else if (*this < rhs){ // -(this - rhs)
-                    size = minus_digits(_x.begin(), it_end, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
+                    size = minus_digits(_x.begin(), _x.begin() + offset, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
                     is_neg = true;
                     // std::cout << "new size in *this > rhs:  " << size << std::endl;
                     _x.resize(size);
@@ -779,14 +811,15 @@ class Integer {
                     is_neg = false;
                 }
             } else if (!is_neg && rhs.is_neg) {
-                plus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), it_end, _x.begin());
+                plus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset, _x.begin());
             } else if (is_neg && !rhs.is_neg) {
-                plus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), it_end, _x.begin());
+                plus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset, _x.begin());
                 is_neg = true;                
             } else {
                 if (*this < rhs){ // rhs - this
-                    size = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), it_end, _x.begin()) - _x.begin();
-                    is_neg = false;
+
+                    size = minus_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset, _x.begin()) - _x.begin();
+                    is_neg = true;
                     _x.resize(size);
                     // std::cout << "new size, in *this < rhs:  " << size << std::endl;
 
@@ -794,8 +827,8 @@ class Integer {
                     
                 }
                 else if (*this > rhs){ // -(this - rhs)
-                    size = minus_digits(_x.begin(), it_end, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
-                    is_neg = true;
+                    size = minus_digits(_x.begin(), _x.begin() + offset, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
+                    is_neg = false;
                     // std::cout << "new size in *this > rhs:  " << size << std::endl;
                     _x.resize(size);
                 } else {
@@ -819,18 +852,36 @@ class Integer {
          */
         Integer& operator *= (const Integer& rhs) {
             // <your code>
-            typename C::iterator it_end = _x.end();
-            _x.resize( _x.size() + rhs._x.size() );
-            int size = multiplies_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), it_end, _x.begin()) - _x.begin();
-            if((rhs.is_neg && !is_neg) || (!rhs.is_neg && is_neg)){
-                is_neg = true;
-            } else if (rhs.is_neg && is_neg){
+            // keep the old end
+            // typename C::iterator it_end = _x.end();
+            Integer<int> temp(0);
+
+
+            if(*this != temp && rhs != temp){
+                int offset = _x.end() - _x.begin();
+                // resize for max possible value
+                int newsize = _x.size() + rhs._x.size();
+
+                _x.resize( newsize );
+
+                // pass in begin and old end, pass in rhs. write to _x
+                // multiplies_digits returns the new end()
+                // int size = multiplies_digits(_x.begin(), it_end, rhs._x.begin(), rhs._x.end(), _x.begin()) - _x.begin();
+                int size = multiplies_digits(rhs._x.begin(), rhs._x.end(), _x.begin(), _x.begin() + offset, _x.begin()) - _x.begin();
+                
+
+                if((rhs.is_neg && !is_neg) || (!rhs.is_neg && is_neg)){
+                    is_neg = true;
+                } else if (rhs.is_neg && is_neg){
+                    is_neg = false;
+                } else {
+                    is_neg = false;
+                }
+                // resizing to the new size, should be only what is written
+                _x.resize(size);
+            } else {
+                _x = {0};
                 is_neg = false;
-            }
-            std::cout << "size: " << size << std::endl;
-            _x.resize(size);
-            for(int i = 0; i < _x.size(); i++){
-                std::cout << "value of: " << _x[i] << std::endl;
             }
             return *this;}
 
@@ -890,6 +941,7 @@ class Integer {
          */
         Integer& abs () {
             // <your code>
+            is_neg = false;
             return *this;}
 
         // ---
