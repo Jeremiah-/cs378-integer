@@ -1160,6 +1160,12 @@ TEST(IntegerFixture, pow8) {
     ASSERT_TRUE(x == correct);
 }
 
+TEST(IntegerFixture, pow9) {
+    Integer<int> x (2);
+    Integer<int> correct (33554432);
+    x.pow(25);
+    ASSERT_TRUE(x == correct);
+}
 
 
 // ----

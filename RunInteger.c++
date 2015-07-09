@@ -40,19 +40,19 @@ int main () {
     cout << "2^4423 - 1 = " << n << endl << endl;
     }
 
-    cout << "Time elapsed: " << t1 + t2 << "ms" << endl;
+    cout << "Time elapsed: " << ((float)(t1 + t2))/CLOCKS_PER_SEC << "s" << endl;
 
     // --------------------------
     // extra credit (5 bonus pts)
     // --------------------------
 
     // less than 4 min
-    cout << "*** 30th Mersenne prime: 39,751 digits ***" << endl << endl;
+    // cout << "*** 30th Mersenne prime: 39,751 digits ***" << endl << endl;
 
-    {
-    const Integer<int> n = Integer<int>(2).pow(132049) - 1;
-    cout << "2^132049 - 1 = " << n << endl << endl;
-    }
+    // {
+    // const Integer<int> n = Integer<int>(2).pow(132049) - 1;
+    // cout << "2^132049 - 1 = " << n << endl << endl;
+    // }
 
     cout << "Done." << endl;
 

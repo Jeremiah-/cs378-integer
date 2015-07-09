@@ -210,47 +210,30 @@ FI minus_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
 template <typename II1, typename II2, typename FI>
 FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
     
+    // add 10 since that is the max digits that can be added
+    int first_offset = e1 - b1;
+    int cache_alloc = first_offset + 10;
+    int second_offset = e2 - b2;
 
-    int first_size = e1 - b1;
-    int second_size = e2 - b2;
+    int size = 0;
 
-    std::vector<int> result {0};
-    std::vector<std::vector<int>> cache (10, std::vector<int>(first_size, 0));
+    std::vector<std::vector<int>> cache (10, std::vector<int>(cache_alloc, 0));
 
     cache[0] = {0};
     std::copy(b1, e1, cache[1].begin());
-    // std::cout << "size: " << cache[1].size() << std::endl;
-    // std::cout << "cache at temp: " << cache[1].at(2) << std::endl;
-    // for(int i = 0; i < cache[1].size(); i++){
-    //     std::cout << "at " << i << " value is: " << cache[1].at(i) << std::endl;
-    // }
+
+    cache[1].resize(first_offset);
 
     // initialize the cache with multiples of [b1, e1)
     // ex. for 123 * 24, cache[0] = 0. [1] = 12, [2] = 24, [3] = 36
-
-
     for(int i = 2; i < 10; i++){
-
-        // this is to give the deque an extra space in case a new digit is added
-        // ex. 99 + 1 = 100
-        // make it -1 to help keep track of it
-        cache[i].push_back(-1);
-
-        // ERROR: this line is causing "Conditional jump or move depends on uninitialised value(s)"
         int j = i-1;
-        
-        plus_digits(b1, e1, cache[j].begin(), cache[j].end(), cache[i].begin());
-        
-        // if the space wasn't used, get rid of it.
-        if (cache[i].back() == -1) {
-            cache[i].pop_back();
-        }
+        size = plus_digits(b1, e1, cache[j].begin(), cache[j].end(), cache[i].begin()) - cache[i].begin();
+        cache[i].resize(size);
     }
 
-
     int shift = 0;
-    std::vector<std::vector<int>> shifted_numbers (second_size, std::vector<int>());
-
+    std::vector<std::vector<int>> shifted_numbers (second_offset, std::vector<int>());
 
     --e2;
     // this loop gets the first number * the current digit, and shifts it appropriately
@@ -261,46 +244,27 @@ FI multiplies_digits (II1 b1, II1 e1, II2 b2, II2 e2, FI x) {
         // using shift just because. No reason
         // resize the deque to the size of the shifted number
         shifted_numbers[shift].resize(cache[num].size() + shift);
-        for (int i = 0; i < shift; ++i) {
-            shifted_numbers[shift].push_back(-1); // add in for space
-        }
 
         shift_left_digits(cache[num].begin(), cache[num].end(), shift, shifted_numbers[shift].begin());
 
-
-        // get rid of any unused space
-        while (shifted_numbers[shift].back() == -1) {
-            shifted_numbers[shift].pop_back();
-        }
-        // size is cache[num].size() + shift
         ++shift;
         --e2;
     }
     
-
-    // make a temp to help with computation
-    std::vector<int> temp = shifted_numbers[0];
     
+    std::vector<int> result (shifted_numbers.back().size() * 2);
+    int result_offset = shifted_numbers[0].end() - shifted_numbers[0].begin();
     // this loop adds all the shifted numbers together, which produces the answer
-    for (int i = 1; i < second_size; ++i) {
-        // resize to the biggest of the ones that are going to be added
-        result.resize(std::max(shifted_numbers[i - 1].size(), shifted_numbers[i].size()));
-        
-        // push for extra size
-        result.push_back(-1);
+    for (int i = 0; i < second_offset; ++i) {
 
-        plus_digits(shifted_numbers[i].begin(), shifted_numbers[i].end(), temp.begin(), temp.end(), result.begin());
+        size = plus_digits(shifted_numbers[i].begin(), shifted_numbers[i].end(), result.begin(), result.begin() + result_offset, result.begin()) - result.begin();
         
-        // get rid of spaced if it is not used
-        if (result.back() == -1) {
-            result.pop_back();
+        if (size > result_offset) {
+            ++result_offset;
         }
 
-        // put result in temp so accumulate the actual result
-        // resize the temp so result will fit in it
-        temp.resize(result.size());
-        std::copy(result.begin(), result.end(), temp.begin());
     }
+    result.resize(size);
     if (result[0] == 0) {
         result = {0};
     }
