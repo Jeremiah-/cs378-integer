@@ -991,54 +991,54 @@ class Integer {
             }
 
 
-            Integer<T, C> result (1);
-            Integer<T, C> squared (1);
-            squared._x.resize(_x.size());
+            // Integer<T, C> result (1);
+            // Integer<T, C> squared (1);
+            // squared._x.resize(_x.size());
 
-            // squared._x = _x;
-            // this is replacing the line above
-            std::copy(_x.begin(), _x.end(), squared._x.begin());
+            // // squared._x = _x;
+            // // this is replacing the line above
+            // std::copy(_x.begin(), _x.end(), squared._x.begin());
 
-            int size, squared_offset = squared._x.end() - squared._x.begin();
+            // int size, squared_offset = squared._x.end() - squared._x.begin();
 
-            while (e  > 0) {
-                if ((e & 1) != 0) {
-                    int result_offset = result._x.end() - result._x.begin();
-                    // result *= squared;
-                    result._x.resize( result_offset + squared._x.size() + result_offset);
-                    size = multiplies_digits(result._x.begin(), result._x.begin() + result_offset, squared._x.begin(), squared._x.begin() + squared_offset, result._x.begin()) - result._x.begin();
-                    result._x.resize(size);
-                }
+            // while (e  > 0) {
+            //     if ((e & 1) != 0) {
+            //         int result_offset = result._x.end() - result._x.begin();
+            //         // result *= squared;
+            //         result._x.resize( result_offset + squared._x.size() + result_offset);
+            //         size = multiplies_digits(result._x.begin(), result._x.begin() + result_offset, squared._x.begin(), squared._x.begin() + squared_offset, result._x.begin()) - result._x.begin();
+            //         result._x.resize(size);
+            //     }
 
-                squared._x.resize(squared_offset + squared_offset + squared_offset);
+            //     squared._x.resize(squared_offset + squared_offset + squared_offset);
 
-                // squared *= squared;
-                size = multiplies_digits(squared._x.begin(), squared._x.begin() + squared_offset, squared._x.begin(), squared._x.begin() + squared_offset, squared._x.begin()) - squared._x.begin();
+            //     // squared *= squared;
+            //     size = multiplies_digits(squared._x.begin(), squared._x.begin() + squared_offset, squared._x.begin(), squared._x.begin() + squared_offset, squared._x.begin()) - squared._x.begin();
                 
-                squared._x.resize(size);
-                squared_offset = squared._x.end() - squared._x.begin();
-                e = e >> 1;
-            }
-
-            _x.resize(result._x.size());
-            std::copy(result._x.begin(), result._x.end(), _x.begin());
-             // _x= result._x;
-
-
-
-
-            // Integer old_val = *this;
-            // for (int i = 1; i < e; ++i) {
-            //     int offset = _x.end() - _x.begin();
-            //     // resize for max possible value
-
-            //     _x.resize( _x.size() + old_val._x.size() );
-
-            //     // pass in begin and old end, pass in rhs. write to _x
-            //     // multiplies_digits returns the new end()
-            //     int size = multiplies_digits(_x.begin(), _x.begin() + offset, old_val._x.begin(), old_val._x.end(), _x.begin()) - _x.begin();
-            //     _x.resize(size);
+            //     squared._x.resize(size);
+            //     squared_offset = squared._x.end() - squared._x.begin();
+            //     e = e >> 1;
             // }
+
+            // _x.resize(result._x.size());
+            // std::copy(result._x.begin(), result._x.end(), _x.begin());
+            //  // _x= result._x;
+
+
+
+
+            Integer old_val = *this;
+            for (int i = 1; i < e; ++i) {
+                int offset = _x.end() - _x.begin();
+                // resize for max possible value
+
+                _x.resize( _x.size() + old_val._x.size() );
+
+                // pass in begin and old end, pass in rhs. write to _x
+                // multiplies_digits returns the new end()
+                int size = multiplies_digits(_x.begin(), _x.begin() + offset, old_val._x.begin(), old_val._x.end(), _x.begin()) - _x.begin();
+                _x.resize(size);
+            }
 
 
 
