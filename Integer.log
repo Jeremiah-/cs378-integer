@@ -1,0 +1,343 @@
+commit 7bdce881a1400aa3702edc4cad492c715eeea4fb
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Thu Jul 9 21:31:34 2015 -0500
+
+    adding finished stuff.
+
+commit b46d6d3e64359ec78d656d9acd855bff3be0ec11
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Thu Jul 9 18:21:53 2015 -0500
+
+    Added a few tests. Trying to get pow to work faster/correctly
+
+commit e00d872ed459aaec1d77b62e847016f3396802df
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Thu Jul 9 05:37:36 2015 -0500
+
+    The 20th Mersenne prime is correct! It's just too slow. Divide_digits, %=, /= still need to be implemented.
+
+commit 75f8b1678657f09b98a21e274393e5e845d40bfb
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Thu Jul 9 03:19:28 2015 -0500
+
+    All work except divide digits, %=, and /=. I commented out those tests to see if travis will make a successful build.
+
+commit c74c5f7ef3e0b5f0557b278399054efa0b7d1063
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Thu Jul 9 01:42:05 2015 -0500
+
+    closes #27. Fixed 27, also just made more functions work. Just need %=, /=, and pow
+
+commit 1453ebbea7988fede4a3cf48b3e724b19e1de5f7
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Thu Jul 9 00:20:57 2015 -0500
+
+    did >>=
+
+commit e31702d7f8b38a2bc1bd2061e1043654154665e6
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 23:52:49 2015 -0500
+
+    hopefully these are right
+
+commit 0329103cb13b9ec1a425cdc01ccd5a9cbd3daf8f
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 23:41:40 2015 -0500
+
+    fixed tests again
+
+commit 2133864dc4832e8ab242dc1d70436d77e33a1711
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Wed Jul 8 23:24:47 2015 -0500
+
+    got += working and fixed some tests
+
+commit bc4d5421dc7d26a753d00e46518551bcf1a727ce
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 22:23:30 2015 -0500
+
+    Messed up abs tests :(
+
+commit d0335d968f00b0fc5a44277b8f6209fa448f4026
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 22:20:59 2015 -0500
+
+    fixed the abs tests
+
+commit e1a02e420db40e71ecb449c6ae085c825ffc22a2
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 22:10:43 2015 -0500
+
+    I screwed up the tests :( fixed!
+
+commit c91b7cf6325219c13f72658d1a475aafcc1ed085
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 21:32:33 2015 -0500
+
+    added more tests. Yaay
+
+commit 71ea033088a2f2da7543ebd42e1ec9895d6712bb
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Wed Jul 8 21:21:14 2015 -0500
+
+    fixed times equals tests and working on times equals
+
+commit 8d6a97890469d2f40e05569daedb522bcbb039cf
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 20:09:36 2015 -0500
+
+    added more test cases for -=
+
+commit 9d61a9fee440695cda7f178610355efa56799505
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 19:59:04 2015 -0500
+
+    added more test cases for += operator
+
+commit d345457e7dc4da566907603f4fd23d03dce44d4b
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 19:17:27 2015 -0500
+
+    Fixed up -=. We had the negative cases switched. closes #26. Also fixed the 0 case in the constructor.
+
+commit 343860ec95fdfdb86c842c07e6ecf82f369a69ce
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Wed Jul 8 18:15:07 2015 -0500
+
+    working on -=
+
+commit f5fc701ea4f3055126af110dfb85578d8690c48d
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 18:13:27 2015 -0500
+
+    added more test cases
+
+commit 8e1f088fa7bf0a52ff0e42bb5ba1cf3929ce319e
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 17:25:50 2015 -0500
+
+    added test cases for -=
+
+commit d6c9273b865be6134b07ef5e4f84da3cbf136aea
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 17:06:51 2015 -0500
+
+    added a few test cases to less_than
+
+commit e62a31e838f75f505a27ca34227d2805e33b59c0
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Wed Jul 8 17:02:19 2015 -0500
+
+    fixed less than
+
+commit 65f4d7e1ec27e331fe1b43dc0e17b4eb1315d047
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 16:49:35 2015 -0500
+
+    added some test cases for less_then
+
+commit d9ee361965e8bb924d6a5fbb5f540cceea335eab
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 16:39:50 2015 -0500
+
+    Implemented valid() and the string constructor
+
+commit d22bf5774750b137bf876e8932275a58936d2dba
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Wed Jul 8 11:56:30 2015 -0500
+
+    fixed less than function
+
+commit d8bc018e5e01edb08df8e3e779008f0759cccdaf
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 03:48:43 2015 -0500
+
+    closes #24. The output is nasty and full of either warnings or errors but it's passing the tests.
+
+commit d5a4d0964b330687839de15f30a77c0b72887849
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Wed Jul 8 03:14:46 2015 -0500
+
+    The tests are passing for multiply_digits but valgrind (or is it gcov?) is show a bunch of gibberish. The most readable is 'Conditional jump or move depends on uninitialised value(s)'. I marked this in the code.
+
+commit da24eae1c4a0c54d2c553e7c970ba643a0584ccb
+Merge: 10c994e 6746d05
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Tue Jul 7 23:28:55 2015 -0500
+
+    Merge branch 'dev-branch' of https://github.com/Jeremiah-/cs378-integer into dev-branch
+
+commit 10c994ec324433c00325a84ad7d7c7bf36232f11
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Tue Jul 7 23:27:59 2015 -0500
+
+    working on digit multiply
+
+commit 6746d05a4baadb524bc283eeb8dfcf1732586805
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 21:03:04 2015 -0500
+
+    Added tests for negate and add some to divides_digits and multiplies_digits
+
+commit 54f1dac0458eea9e0657b3c6cb0a5f873f078b83
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 19:26:00 2015 -0500
+
+    added a case for multiply_digits
+
+commit 9c734cebe38f1c0d82106f5d5534f493529573ed
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 19:16:38 2015 -0500
+
+    Added test cases to check for minus_digits
+
+commit 263dba00574848d8c7a548c3b6db70712c83c5c0
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Tue Jul 7 19:09:17 2015 -0500
+
+    fixed minus_digit
+
+commit 9e1a9c7629acaaba05f5bf754d673862f7e01b98
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 17:45:11 2015 -0500
+
+    added more test cases to plus_digits
+
+commit 0e0df54c092e31dab41592de6c5c9e94aff0287e
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Tue Jul 7 17:02:13 2015 -0500
+
+    fixed == cases
+
+commit 45b479b850bd32cf4eda2b8944b536f3f0105a65
+Merge: 19e4166 992697c
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 15:54:53 2015 -0500
+
+    Merge branch 'dev-branch' of https://github.com/Jeremiah-/cs378-integer into dev-branch
+
+commit 19e416615d19dcb888fafa31e03b28a1660f9627
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 15:54:33 2015 -0500
+
+    closes #22. Fixed the test cases for non-integer methods
+
+commit 992697ca3eb23d2ea684cd5ffd0c78c34e2362ff
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Tue Jul 7 15:47:24 2015 -0500
+
+    fixed up shift right
+
+commit 4320121d560cd2b4a1491d86bb9cea862abb3539
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 15:40:58 2015 -0500
+
+    Fixed shift_right_digits. Needed to initialize result with size and other problems. closes #21
+
+commit 3564f9baf5df1dc4110bdbd9699b19f064ba9d17
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Tue Jul 7 15:34:26 2015 -0500
+
+    fixed some tests and got shift left working closes #20
+
+commit a742c237ca5936ccac1feec7672d9e14c6f99fb3
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 12:51:13 2015 -0500
+
+    closes #5. Added tests for most cases, should have average of 3.
+
+commit 65e4cb551b0a16bb3dc7c9140b71cea0b9bc47cc
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Tue Jul 7 05:22:10 2015 -0500
+
+    Fell asleep, added some test cases. Still need some more to go.
+
+commit 110af1182f6912618f26b0db20d5c2cdc4e7aa5a
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 23:36:25 2015 -0500
+
+    closes #19. Uses a different method to compare strings (ASSERT_STREQ compares C strings, we're using string objects).
+
+commit e99671c30e2aa1ecc877633f032cd2c5ea9508d4
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 21:33:33 2015 -0500
+
+    just updating
+
+commit 79107d508416d1dd8c3022fa946325cb0b127ebe
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 21:31:39 2015 -0500
+
+    adding more tests still
+
+commit 37bcaa541cbf448c77c571d3612314ab19e2d6ba
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 19:33:38 2015 -0500
+
+    Fixed the test cases. Was trying to save iterators into a vector type. closes #16
+
+commit 1c1a72e8572a40b76112dd8a95f9db0983064f31
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 18:47:01 2015 -0500
+
+    sadfasd
+
+commit 92c4037eeee463befcd11e26ee27a62948f1ecb1
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 18:42:25 2015 -0500
+
+    added more test cases. Think I accidenly changed comments in Integer.h
+
+commit 6a314f960361687197f849f6f36872dea92453f1
+Author: Jeremiah- <Jeremiah.H.Martinez@utexas.edu>
+Date:   Mon Jul 6 18:07:14 2015 -0500
+
+    Delete README.md
+
+commit 47fa0229938d49fd2ac24c7e4e597d43f961118f
+Author: Jeremiah- <Jeremiah.H.Martinez@utexas.edu>
+Date:   Mon Jul 6 18:07:02 2015 -0500
+
+    Delete TestInteger.gcno
+
+commit f6a510ab6792f9e700573dec2f2ac0fc7d2f5304
+Author: Jeremiah- <Jeremiah.H.Martinez@utexas.edu>
+Date:   Mon Jul 6 18:06:50 2015 -0500
+
+    Delete TestInteger
+
+commit 12e733973b1d551b96dc55ddc697757c6288dbc2
+Author: Jeremiah- <Jeremiah.H.Martinez@utexas.edu>
+Date:   Mon Jul 6 18:06:42 2015 -0500
+
+    Delete RunInteger
+
+commit a01d6718e8c6e64e08671d6d115f15dc2112c8e6
+Author: David Munoz <dam2989@cs.utexas.edu>
+Date:   Mon Jul 6 17:56:24 2015 -0500
+
+    added easy digit operators
+
+commit da4633cf06534a339e66109c43144fb31a53a0bf
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 17:53:44 2015 -0500
+
+    added a few test cases
+
+commit c0b3c9352676d2a955b738c322adb1b94e7d95f2
+Author: Jeremiah Martinez <jeremiah@cs.utexas.edu>
+Date:   Mon Jul 6 16:41:31 2015 -0500
+
+    barely modified the file
+
+commit f9ec61c26798d83c1bdbc758bbd56ba0f496ab07
+Author: Jeremiah- <Jeremiah.H.Martinez@utexas.edu>
+Date:   Sun Jul 5 21:29:48 2015 -0500
+
+    closes #2. closes #14. Modified last project's files and made a dev branch
+
+commit 6ea1ae548f16379d0cababcce8c4a5948dd77e56
+Author: Jeremiah- <Jeremiah.H.Martinez@utexas.edu>
+Date:   Sun Jul 5 19:58:04 2015 -0500
+
+    Initial commit
