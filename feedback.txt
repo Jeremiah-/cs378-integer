@@ -1,0 +1,15 @@
+This is the feedback for (group) jhm2464 dam2989 project
+Requirement #1: 5
+Requirement #2: 5
+Requirement #3: 25
+Requirement #4: 20
+Requirement #5: 10
+Requirement #6: 5
+Bonus points:
+Minus (reasons in comments): -31
+Comment:
+partner +5
+passed 58/68 test cases -4
+20th Mersenne prime 1.78109 seconds -70
+30th Mersenne prime : 1038.3 seconds
+need more documentations -4
